@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600|Inter:400,700,800");
+
+body{
+    padding: 0 20px;
+}
+h1, h2, h3, h4, h5{
+    font-family: "Poppins", Helvetica;
+}
+h1{
+    font-size: 96px;
+    font-weight: 500;
+    letter-spacing: 2.88px;
+    line-height: normal;
+    margin: 40px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+h2{
+    color:gray;
+    font-size: 30px;
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+h2:hover{
+    color: black;
+}
+.focused-title{
+    color:black;
+}
+h3{
+    font-size: 45px;
+    font-weight: 500;
+    line-height: normal;
+    margin: 40px;
+    margin-left: 20px;
+    margin-bottom:0;
+}
+h4{
+    margin: 0 10px;
+    font-size: 22px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+h5{
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 2px;
+    margin-top: 10px;
+}
+p{
+    font-family: "Inter", Consolas;
+    font-weight: 500;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+table, tr, td, th{
+}
+table{
+    width: 100%;
+    border-spacing: 0;
+    margin-right: 20px;
+}
+td, th{
+    padding: 0px 10px;
+}
+th{
+    border: 3px black solid;
+    border-width: 0 0 3px 0;
+}
+td{
+    border: 1px gray solid;
+    border-width: 0 0 2px 0;
+}
+th > p{
+    font-weight: bold;
+}
+.secdiv{
+    width: 100%;
+    height: 20rem;
+}
+.sbtn{
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 7px;
+    background-color: #00000000;
+    width: fit-content;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: "Poppins";
+    display: inline-block;
+    text-underline: none;
+    color: black;
+    outline: none;
+    text-decoration: none;
+}
+.sbtn:hover{
+    box-shadow: 4px 4px 4px lightgray;
+}
+.sbtn_with_h4{
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 7px 20px;
+    background-color: #00000000;
+    width: fit-content;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: "Poppins";
+    display: inline-block;
+    text-underline: none;
+    color: black;
+    outline: none;
+    text-decoration: none;
+
+    font-size: 22px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+.sbtn_with_h4:hover{
+    box-shadow: 4px 4px 4px lightgray;
+}
+.usertag{
+    background-color:gray;
+    border: 0px;
+    border-radius: 50px;
+    display: inline-block;
+    margin: 2px 5px;
+    padding: 3px 10px;
+    font-family: "Poppins", Helvetica;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+}
+.usertag:hover{
+    box-shadow: 4px 4px 4px lightgray;
+}
+.only-outline{
+    background-color: white;
+    border: 2px black solid;
+    color: black;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.notable > tbody > tr > td, .notable > td, .notable{
+    border: none;
+}
+form > table{
+    width: 25rem;
+    margin: 0 auto;
+}
+form > table > td{
+    width: 50%;
+    text-align: left;
+}
+.outertable{
+    width: 80rem;
+}
+.actioncol{
+    width: 5rem;
+}
+.bg-red{
+    background-color: #d9515e;
+}
+.bg-green{
+    background-color:#1dce79;
+}
+.bg-teal{
+    background-color: #0f8a8e;
+}
+.bg-orange{
+    background-color:darkorange;
+}
+.bg-purple{
+    background-color: mediumpurple;
+}
+.bg-blue{
+    background-color: cornflowerblue;
+}
+.w3{
+    width: 3rem;
+}
+.w5{
+    width: 5rem;
+}
+.w7{
+    width: 7rem;
+}
+.h5{
+    height:5rem;
+}
+.h10{
+    height:10rem;
+}
+.right{
+    text-align: right;
+    align-content: end;
+    align-items: end;
+}
+.left{
+    text-align: left;
+}
+.middle{
+    text-align: center;
+    align-content: center;
+}
+.bold{
+    font-weight: bold;
+}
+.min-width{
+    width: fit-content;
+    padding: 0;
+}
+.summary_table{
+    width: 80%;
+    margin: 200px auto;
+}
+img{
+    margin: 0 5px;
+    display: inline-block;
+}
+input{
+    border: solid gray 2px;
+    border-width: 0 0 2px 0;
+    background:none;
+    text-align: center;
+    color: black;
+    font-family: "Poppins", Helvetica;
+    font-size: 18px;
+    margin: 10px;
+    width: 25rem;
+    outline:none;
+}
+input:hover{
+    border-color: black;
+    outline:none;
+}
+input:focus{
+    border-width: 0 0 3px 0;
+}
+.sbtn_with_h4:focus{
+    border: 2px solid black;
+}
+.radio{
+    width:auto;
+    accent-color: black;
+}
+.radio:hover{
+    border:red 2px solid;
+}
+.checkbox{
+    width: auto;
+    accent-color: black;
+}

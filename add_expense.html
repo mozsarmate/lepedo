@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lepedő - Új költés hozzáadása</title>
+    <link rel="stylesheet" href="/stylesheets/sajat.css">
+</head>
+<body>
+<h1>Lepedő</h1>
+
+<a href="/summary"><h2>Összegzés</h2></a>
+<a href="/list"><h2>Tételek</h2></a>
+<h2 class="focused-title">Új költés hozzáadása</h2>
+
+<div class="h10"></div>
+<div class="middle">
+    <form>
+        <input placeholder="Megnevezés"><br>
+        <input placeholder="Dátum" type="date"><br>
+        <input placeholder="Összeg" type="number"><br>
+        <table class="notable">
+            <tr>
+                <td><h5>Fizetett</h5></td>
+                <td></td>
+                <td><h5>Részvett</h5></td>
+            </tr>
+            <tr>
+                <td class="left">
+
+                    <input type="radio" id="1" value="value" class="radio" name="payed">
+                    <label for="1">
+                        <div class="usertag bg-teal">Kristóf</div><br>
+                    </label>
+                    <input type="radio" id="2" value="value" class="radio" name="payed">
+                    <label for="2">
+                        <div class="usertag bg-blue">Marci</div><br>
+                    </label>
+                    <input type="radio" id="3" value="value" class="radio" name="payed">
+                    <label for="3">
+                        <div class="usertag bg-red">Gergő</div><br>
+                    </label>
+                </td>
+                <td><img class="arrow-right" src="/images/arrow-right.svg" alt="arrow-right" /></td>
+                <td class="right">
+                    <label for="b1">
+                        <div class="usertag bg-teal">Kristóf</div>
+                    </label>
+                    <input type="checkbox" id="b1" value="value" class="checkbox" name="payedto"><br>
+                    <label for="b2">
+                        <div class="usertag bg-blue">Marci</div>
+                    </label>
+                    <input type="checkbox" id="b2" value="value" class="checkbox" name="payedto"><br>
+                    <label for="b3">
+                        <div class="usertag bg-red">Gergő</div>
+                    </label>
+                    <input type="checkbox" id="b3" value="value" class="checkbox" name="payedto"><br>
+                </td>
+            </tr>
+        </table>
+
+        <div class="h5"></div>
+        <input class="sbtn_with_h4" type="submit" value="Mentés">
+        <a class="sbtn" href="/summary"><h4>Mégse</h4></a>
+    </form>
+</div>
+
+</body>
+</html>

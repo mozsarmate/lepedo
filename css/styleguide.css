@@ -1,0 +1,61 @@
+:root {
+    --big-stone: #152536;
+    --black: #000000;
+    --bright-sun: #ffd641;
+    --bunker: #131215;
+    --green: #1dce79;
+    --rusty-red: #dc3545;
+    --white: #ffffff;
+    --white-2: #ffffff3d;
+    --white-3: #ffffff1a;
+
+    --font-size-l: 18px;
+    --font-size-m: 16px;
+    --font-size-s: 14px;
+    --font-size-xl: 32px;
+    --font-size-xs: 12px;
+    --font-size-xxl: 40px;
+    --font-size-xxs: 10px;
+
+    --font-family-inter: "Inter", Helvetica;
+    --font-family-poppins: "Poppins", Helvetica;
+}
+.inter-extra-bold-big-stone-16px {
+    color: var(--big-stone);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 800;
+}
+
+.inter-bold-white-10px {
+    color: var(--white);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-xxs);
+    font-style: normal;
+    font-weight: 700;
+}
+
+.inter-normal-big-stone-16px {
+    color: var(--big-stone);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 400;
+}
+
+.inter-normal-big-stone-14px {
+    color: var(--big-stone);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-s);
+    font-style: normal;
+    font-weight: 400;
+}
+
+.inter-bold-big-stone-16px {
+    color: var(--big-stone);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 700;
+}

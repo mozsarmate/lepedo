@@ -1,0 +1,903 @@
+/* screen - kepernyo-1 */
+
+.kepernyo-1 {
+    background-color: var(--white);
+    border: 1px none;
+    display: flex;
+    overflow-y: hidden;
+    width: 100%;
+}
+
+.kepernyo-1 .flex-col {
+    flex-direction: column;
+    gap: 42px;
+    margin-left: 44px;
+    margin-top: 67px;
+    min-height: 820px;
+    width: 367px;
+}
+
+.kepernyo-1 .leped {
+    color: var(--black);
+    font-family: var(--font-family-poppins);
+    font-size: 96px;
+    font-weight: 500;
+    letter-spacing: 2.88px;
+    line-height: normal;
+    margin-top: -1px;
+    min-height: 144px;
+    min-width: 367px;
+    position: relative;
+}
+
+.kepernyo-1 .flex-row-5 {
+    align-items: flex-start;
+    display: flex;
+    gap: 41px;
+    height: 635px;
+    min-width: 359px;
+}
+
+.kepernyo-1 .flex-col-1 {
+    align-self: flex-end;
+    min-height: 631px;
+    width: 185px;
+}
+
+.kepernyo-1 .sszegzs {
+    align-self: center;
+    color: #474747;
+    font-family: var(--font-family-poppins);
+    font-size: 29px;
+    font-weight: 500;
+    height: 44px;
+    letter-spacing: 0.87px;
+    line-height: normal;
+    margin-left: 8.0px;
+    min-width: 159px;
+    text-align: center;
+}
+
+.kepernyo-1 .kltsek {
+    color: var(--black);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-xxl);
+    font-weight: 500;
+    letter-spacing: 1.20px;
+    line-height: normal;
+    margin-top: 151px;
+    min-height: 60px;
+    min-width: 178px;
+    position: relative;
+}
+
+.kepernyo-1 .button {
+    align-items: flex-start;
+    background-color: var(--white);
+    border: 2px solid;
+    border-color: var(--black);
+    border-radius: 6px;
+    display: flex;
+    gap: 8px;
+    margin-top: 3px;
+    padding: 10px 16px;
+    position: relative;
+    width: fit-content;
+}
+
+.kepernyo-1 .j-klts {
+    width: 104px;
+}
+
+.kepernyo-1 .overlap-group4 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-top: 226px;
+    min-height: 103px;
+    width: 185px;
+}
+
+.kepernyo-1 .utalsok {
+    color: var(--black);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-xxl);
+    font-weight: 500;
+    letter-spacing: 1.20px;
+    line-height: normal;
+    margin-top: -1px;
+    min-height: 60px;
+    min-width: 185px;
+    position: relative;
+}
+
+.kepernyo-1 .button-1 {
+    align-items: flex-start;
+    background-color: var(--white);
+    border: 2px solid;
+    border-color: var(--black);
+    border-radius: 6px;
+    display: flex;
+    gap: 8px;
+    padding: 10px 16px;
+    position: relative;
+    width: fit-content;
+}
+
+.kepernyo-1 .j-utals {
+    width: 108px;
+}
+
+.kepernyo-1 .ttelek {
+    color: var(--black);
+    font-family: var(--font-family-poppins);
+    font-size: 35px;
+    font-weight: 500;
+    letter-spacing: 1.05px;
+    line-height: normal;
+    min-height: 53px;
+}
+
+.kepernyo-1 .flex-row-6 {
+    align-items: flex-start;
+    display: flex;
+    gap: 617px;
+    height: 1340px;
+    margin-top: 56px;
+    min-width: 3669px;
+}
+
+.kepernyo-1 .flex-col-2 {
+    min-height: 917px;
+    width: 1328px;
+}
+
+.kepernyo-1 .overlap-group3 {
+    align-self: flex-end;
+    height: 160px;
+    position: relative;
+    width: 618px;
+}
+
+.kepernyo-1 .frame-485 {
+    align-items: flex-start;
+    border-radius: 34px;
+    display: flex;
+    height: 159px;
+    left: 0;
+    min-width: 300px;
+    position: absolute;
+    top: 1px;
+}
+
+.kepernyo-1 .overlap-group1 {
+    height: 159px;
+    position: relative;
+    width: 300px;
+}
+
+.kepernyo-1 .subtract {
+    height: 159px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 300px;
+}
+
+.kepernyo-1 .group-container {
+    height: 89px;
+    left: 27px;
+    position: absolute;
+    top: 8px;
+    width: 246px;
+}
+
+.kepernyo-1 .group {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    left: 0;
+    min-height: 59px;
+    padding: 10.0px 0.1px;
+    position: absolute;
+    top: 0;
+    width: 175px;
+}
+
+.kepernyo-1 .flex-row {
+    gap: 17px;
+    height: 14px;
+    margin-left: 0;
+    min-width: 175px;
+}
+
+.kepernyo-1 .rectangle {
+    background-color: var(--white-2);
+    border-radius: 100px;
+    height: 11px;
+    transform: rotate(-15.00deg);
+    width: 79px;
+}
+
+.kepernyo-1 .rectangle-1 {
+    align-self: flex-end;
+    background-color: var(--white-2);
+}
+
+.kepernyo-1 .rectangle-2 {
+    background-color: var(--white-2);
+    margin-left: 8.0px;
+}
+
+.kepernyo-1 .group-1 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    left: 71px;
+    min-height: 59px;
+    padding: 10.0px 0.1px;
+    position: absolute;
+    top: 30px;
+    transform: rotate(180deg);
+    width: 175px;
+}
+
+.kepernyo-1 .group-2 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    left: 24px;
+    min-height: 88px;
+    position: absolute;
+    top: 22px;
+    width: 175px;
+}
+
+.kepernyo-1 .hozzadott-kltsek {
+    color: var(--bunker);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-m);
+    font-weight: 500;
+    letter-spacing: 0.48px;
+    line-height: normal;
+    min-height: 24px;
+}
+
+.kepernyo-1 .address {
+    color: var(--bunker);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-xl);
+    font-weight: 500;
+    letter-spacing: 0.96px;
+    line-height: normal;
+    min-height: 48px;
+}
+
+.kepernyo-1 .overlap-group2 {
+    height: 159px;
+    left: 27px;
+    position: absolute;
+    top: 0;
+    width: 591px;
+}
+
+.kepernyo-1 .frame-485-1 {
+    align-items: flex-start;
+    background-image: url(../img/subtract-1.svg);
+    background-size: 100% 100%;
+    border-radius: 34px;
+    display: flex;
+    height: 159px;
+    left: 291px;
+    overflow: hidden;
+    padding: 6px 22px;
+    position: absolute;
+    top: 0;
+    width: 300px;
+}
+
+.kepernyo-1 .group-container-1 {
+    height: 145px;
+    position: relative;
+    width: 246px;
+}
+
+.kepernyo-1 .rectangle-4 {
+    background-color: var(--white-3);
+}
+
+.kepernyo-1 .rectangle-5 {
+    align-self: flex-end;
+    background-color: var(--white-3);
+}
+
+.kepernyo-1 .rectangle-3 {
+    background-color: var(--white-3);
+    margin-left: 8.0px;
+}
+
+.kepernyo-1 .group-3 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    left: 71px;
+    min-height: 116px;
+    padding: 10.0px 0.1px;
+    position: absolute;
+    top: 30px;
+    transform: rotate(180deg);
+    width: 175px;
+}
+
+.kepernyo-1 .rectangle-6 {
+    align-self: flex-end;
+    background-color: var(--white-3);
+    margin-top: 14px;
+}
+
+.kepernyo-1 .rectangle-7 {
+    background-color: var(--white-3);
+    margin-left: 0;
+    margin-top: 49px;
+}
+
+.kepernyo-1 .group-4 {
+    align-items: flex-end;
+    display: flex;
+    gap: 221px;
+    height: 114px;
+    left: 0;
+    min-width: 524px;
+    position: absolute;
+    top: 22px;
+}
+
+.kepernyo-1 .j-klts-1 {
+    color: #19181a;
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-xs);
+    font-weight: 400;
+    letter-spacing: 0.36px;
+    line-height: normal;
+    min-height: 18px;
+    text-decoration: underline;
+    width: 94px;
+}
+
+.kepernyo-1 .flex-col-3 {
+    min-height: 114px;
+    width: 201px;
+}
+
+.kepernyo-1 .lebonyoltott-utalsok {
+    color: var(--bunker);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-m);
+    font-weight: 500;
+    letter-spacing: 0.48px;
+    line-height: normal;
+    min-height: 23px;
+    width: 201px;
+}
+
+.kepernyo-1 .address-1 {
+    color: var(--bunker);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-xl);
+    font-weight: 500;
+    letter-spacing: 0.96px;
+    line-height: normal;
+    margin-top: 17px;
+    min-height: 48px;
+}
+
+.kepernyo-1 .j-utals-1 {
+    color: #19181a;
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-xs);
+    font-weight: 400;
+    letter-spacing: 0.36px;
+    line-height: normal;
+    margin-top: 8px;
+    min-height: 18px;
+    text-decoration: underline;
+    width: 94px;
+}
+
+.kepernyo-1 .table1 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 236px;
+    min-height: 235px;
+    width: 1301px;
+}
+
+.kepernyo-1 .header {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 35px;
+    width: 1313px;
+}
+
+.kepernyo-1 .navbar-link-container {
+    align-items: flex-start;
+    display: flex;
+    height: 19px;
+    margin-left: 23.44px;
+    min-width: 1166px;
+}
+
+.kepernyo-1 .text {
+    letter-spacing: 0;
+    line-height: normal;
+    min-height: 19px;
+    width: 13px;
+}
+
+.kepernyo-1 .navbar-link-megnevezs {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-left: 101px;
+    min-height: 19px;
+    width: 120px;
+}
+
+.kepernyo-1 .navbar-link-dtum {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-left: 169px;
+    min-height: 19px;
+    width: 62px;
+}
+
+.kepernyo-1 .navbar-link-fizetett {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-left: 210px;
+    min-height: 19px;
+    width: 73px;
+}
+
+.kepernyo-1 .navbar-link-rsztvevk {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-left: 81px;
+    min-height: 19px;
+    width: 109px;
+}
+
+.kepernyo-1 .navbar-link-sszeg {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-left: 145px;
+    min-height: 19px;
+    text-align: right;
+    width: 84px;
+}
+
+.kepernyo-1 .line-39 {
+    height: 2px;
+    width: 1301px;
+}
+
+.kepernyo-1 .table1-item {
+    height: 38px;
+    position: relative;
+    width: 1301px;
+}
+
+.kepernyo-1 .line-40 {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 37px;
+    width: 1301px;
+}
+
+.kepernyo-1 .flex-row-1 {
+    align-items: center;
+    display: flex;
+    height: 28px;
+    left: 23px;
+    min-width: 494px;
+    position: absolute;
+    top: -1px;
+}
+
+.kepernyo-1 .number {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-bottom: 1.0px;
+    min-height: 19px;
+    width: 71px;
+}
+
+.kepernyo-1 .lidl {
+    letter-spacing: 0;
+    line-height: 28px;
+    margin-left: 41px;
+    white-space: nowrap;
+    width: 232px;
+}
+
+.kepernyo-1 .flex-row-2 {
+    align-items: center;
+    display: flex;
+    height: 28px;
+    left: 1028px;
+    min-width: 256px;
+    position: absolute;
+    top: -1px;
+}
+
+.kepernyo-1 .address-2 {
+    letter-spacing: 0;
+    line-height: 28px;
+    text-align: right;
+    white-space: nowrap;
+    width: 161px;
+}
+
+.kepernyo-1 .icon-pencil {
+    margin-left: 46px;
+}
+
+.kepernyo-1 .icon-trash {
+    margin-left: 17px;
+}
+
+.kepernyo-1 .pills-danger-1 {
+    background-color: var(--rusty-red);
+    left: 852px;
+}
+
+.kepernyo-1 .user {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1.00px;
+    position: relative;
+    text-align: center;
+    width: fit-content;
+}
+
+.kepernyo-1 .pills-danger-2 {
+    background-color: var(--bright-sun);
+    left: 912px;
+}
+
+.kepernyo-1 .pills-danger {
+    align-items: center;
+    background-color: var(--rusty-red);
+    border-radius: 16px;
+    display: flex;
+    left: 697px;
+    padding: 3px 8px;
+    position: absolute;
+    top: 5px;
+    width: fit-content;
+}
+
+.kepernyo-1 .arrow-right {
+    height: 24px;
+    left: 790px;
+    position: absolute;
+    top: 2px;
+    width: 28px;
+}
+
+.kepernyo-1 .x3 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-bottom: 1.0px;
+    min-height: 19px;
+    width: 71px;
+}
+
+.kepernyo-1 .x2-520-ft {
+    letter-spacing: 0;
+    line-height: 28px;
+    text-align: right;
+    white-space: nowrap;
+    width: 161px;
+}
+
+.kepernyo-1 .pills-danger-3 {
+    background-color: var(--bright-sun);
+    left: 852px;
+}
+
+.kepernyo-1 .pills-danger-4 {
+    background-color: var(--green);
+    left: 697px;
+}
+
+.kepernyo-1 .x20230306 {
+    letter-spacing: 0;
+    line-height: 28px;
+    margin-left: 56px;
+    white-space: nowrap;
+    width: 94px;
+}
+
+.kepernyo-1 .x2-520-ft-1 {
+    letter-spacing: 0;
+    line-height: 28px;
+    text-align: right;
+    white-space: nowrap;
+    width: 161px;
+}
+
+.kepernyo-1 .pills-danger-5 {
+    background-color: var(--green);
+    left: 852px;
+}
+
+.kepernyo-1 .pills-danger-6 {
+    background-color: #e974fb;
+    left: 912px;
+}
+
+.kepernyo-1 .row {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 38px;
+    width: 1301px;
+}
+
+.kepernyo-1 .flex-row-3 {
+    align-items: center;
+    display: flex;
+    height: 28px;
+    margin-right: 27.0px;
+    margin-top: -1px;
+    min-width: 1228px;
+}
+
+.kepernyo-1 .pencil {
+    height: 16px;
+    margin-left: 868px;
+    margin-top: 2.0px;
+    width: 16px;
+}
+
+.kepernyo-1 .line-40-1 {
+    height: 1px;
+    object-fit: cover;
+    width: 1301px;
+}
+
+.kepernyo-1 .table2 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-top: 97px;
+    min-height: 189px;
+    width: 1301px;
+}
+
+.kepernyo-1 .header-1 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 35px;
+    width: 1311px;
+}
+
+.kepernyo-1 .flex-row-7 {
+    align-items: flex-start;
+    display: flex;
+    height: 19px;
+    margin-left: 23.44px;
+    min-width: 1166px;
+}
+
+.kepernyo-1 .utal {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-left: 221px;
+    min-height: 19px;
+    width: 73px;
+}
+
+.kepernyo-1 .kedvezmnyezett {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-left: 80px;
+    min-height: 19px;
+    min-width: 144px;
+}
+
+.kepernyo-1 .dtum {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-left: 221px;
+    min-height: 19px;
+    width: 62px;
+}
+
+.kepernyo-1 .sszeg {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-left: 268px;
+    min-height: 19px;
+    text-align: right;
+    width: 84px;
+}
+
+.kepernyo-1 .table2-item {
+    height: 38px;
+    margin-top: 13px;
+    position: relative;
+    width: 1301px;
+}
+
+.kepernyo-1 .flex-row-4 {
+    align-items: center;
+    display: flex;
+    height: 28px;
+    left: 773px;
+    min-width: 511px;
+    position: absolute;
+    top: -1px;
+}
+
+.kepernyo-1 .phone {
+    letter-spacing: 0;
+    line-height: 28px;
+    white-space: nowrap;
+    width: 94px;
+}
+
+.kepernyo-1 .address-3 {
+    letter-spacing: 0;
+    line-height: 28px;
+    margin-left: 161px;
+    text-align: right;
+    white-space: nowrap;
+    width: 161px;
+}
+
+.kepernyo-1 .number-1 {
+    left: 23px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 3px;
+    width: 71px;
+}
+
+.kepernyo-1 .pills-danger-7 {
+    background-color: var(--bright-sun);
+    left: 411px;
+}
+
+.kepernyo-1 .pills-danger-8 {
+    background-color: var(--green);
+    left: 257px;
+}
+
+.kepernyo-1 .arrow-right-1 {
+    height: 24px;
+    left: 350px;
+    position: absolute;
+    top: 2px;
+    width: 28px;
+}
+
+.kepernyo-1 .x5-000-ft {
+    letter-spacing: 0;
+    line-height: 28px;
+    margin-left: 161px;
+    text-align: right;
+    white-space: nowrap;
+    width: 161px;
+}
+
+.kepernyo-1 .x2 {
+    left: 23px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 3px;
+    width: 71px;
+}
+
+.kepernyo-1 .pills-danger-9 {
+    background-color: var(--rusty-red);
+    left: 411px;
+}
+
+.kepernyo-1 .pills-danger-10 {
+    background-color: #e974fb;
+    left: 257px;
+}
+
+.kepernyo-1 .row-1 {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 14px;
+    min-height: 38px;
+    width: 1301px;
+}
+
+.kepernyo-1 .rajztbla-1-1 {
+    align-self: flex-end;
+    height: 945px;
+    object-fit: cover;
+    width: 1724px;
+}
+
+.kepernyo-1 .flex {
+    align-items: flex-start;
+    display: flex;
+}
+
+.kepernyo-1 .flex-col-4 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+.kepernyo-1 .icon {
+    height: 16px;
+    margin-top: 2.0px;
+    width: 16px;
+}
+
+.kepernyo-1 .j {
+    color: var(--black);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-l);
+    font-weight: 600;
+    height: 24px;
+    letter-spacing: 0.90px;
+    line-height: 18px;
+    margin-top: -2.00px;
+    position: relative;
+}
+
+.kepernyo-1 .phone-3 {
+    letter-spacing: 0;
+    line-height: 28px;
+    margin-left: 56px;
+    white-space: nowrap;
+    width: 94px;
+}
+
+.kepernyo-1 .pills-danger-11 {
+    align-items: center;
+    border-radius: 16px;
+    display: flex;
+    padding: 3px 8px;
+    position: absolute;
+    top: 5px;
+    width: fit-content;
+}
+
+.kepernyo-1 .rectangle-8 {
+    border-radius: 100px;
+    height: 11px;
+    transform: rotate(-15.00deg);
+    width: 79px;
+}
+
+.kepernyo-1 .x3-4 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-bottom: 1.0px;
+    min-height: 19px;
+    width: 71px;
+}
