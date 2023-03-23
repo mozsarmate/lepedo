@@ -6,10 +6,30 @@
     <link rel="stylesheet" href="/stylesheets/sajat.css">
 </head>
 <body>
+
+<div class="card bg-red">
+    <h5>A spórolós</h5>
+    <h2>Gergő</h2>
+</div>
+<div class="card bg-green">
+    <h5>Összesen elszámolt</h5>
+    <h2>25 682 Ft</h2>
+    <a href="/add_transfer">Új utalás</a>
+</div>
+<div class="card bg-purple">
+    <h5>Összesen költött</h5>
+    <h2>41 848 Ft</h2>
+    <a href="/add_expense">Új költés</a>
+</div>
+
+
 <h1>Lepedő</h1>
+
+
+
+
 <a href="/summary"><h2>Összegzés</h2></a>
 <a href="/list"><h2>Tételek</h2></a>
-
 
 <table class="summary_table">
     <tbody>
@@ -25,6 +45,40 @@
     <tr>
         <td class="left">
             <div class="usertag bg-blue">Marci</div>
+            <a href="/edit_user/">
+                <img src="/images/pencil.svg" alt="edit" />
+            </a>
+            <a href="/delete_user/">
+                <img src="/images/trash.svg" alt="delete" />
+            </a>
+        </td>
+        <td><p class="right">7000 Ft</p></td>
+        <td><p class="right">7000 Ft</p></td>
+        <td><p class="right">7000 Ft</p></td>
+        <td><p class="right">7000 Ft</p></td>
+        <td><p class="right bold">7000 Ft</p></td>
+
+    </tr>
+    <tr>
+        <td class="left">
+            <div class="usertag bg-red">Gergő</div>
+            <a href="/edit_user/">
+                <img src="/images/pencil.svg" alt="edit" />
+            </a>
+            <a href="/delete_user/">
+                <img src="/images/trash.svg" alt="delete" />
+            </a>
+        </td>
+        <td><p class="right">7000 Ft</p></td>
+        <td><p class="right">7000 Ft</p></td>
+        <td><p class="right">7000 Ft</p></td>
+        <td><p class="right">7000 Ft</p></td>
+        <td><p class="right bold">7000 Ft</p></td>
+
+    </tr>
+    <tr>
+        <td class="left">
+            <div class="usertag bg-teal">Kristóf</div>
             <a href="/edit_user/">
                 <img src="/images/pencil.svg" alt="edit" />
             </a>

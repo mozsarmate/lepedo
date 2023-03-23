@@ -7,7 +7,7 @@ h1, h2, h3, h4, h5{
     font-family: "Poppins", Helvetica;
 }
 h1{
-    font-size: 96px;
+    font-size: 85px;
     font-weight: 500;
     letter-spacing: 2.88px;
     line-height: normal;
@@ -17,7 +17,7 @@ h1{
 }
 h2{
     color:gray;
-    font-size: 30px;
+    font-size: 27px;
     display: inline-block;
     margin-left: 20px;
     margin-right: 40px;
@@ -31,7 +31,7 @@ h2:hover{
     color:black;
 }
 h3{
-    font-size: 45px;
+    font-size: 44px;
     font-weight: 500;
     line-height: normal;
     margin: 40px;
@@ -40,12 +40,12 @@ h3{
 }
 h4{
     margin: 0 10px;
-    font-size: 22px;
+    font-size: 19px;
     letter-spacing: 1px;
     font-weight: 500;
 }
 h5{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     margin-bottom: 2px;
     margin-top: 10px;
@@ -53,6 +53,9 @@ h5{
 p{
     font-family: "Inter", Consolas;
     font-weight: 500;
+    font-size: 14px;
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 a{
     text-decoration: none;
@@ -74,14 +77,14 @@ th{
 }
 td{
     border: 1px gray solid;
-    border-width: 0 0 2px 0;
+    border-width: 0 0 1px 0;
 }
 th > p{
     font-weight: bold;
 }
 .secdiv{
     width: 100%;
-    height: 20rem;
+    height: 18rem;
 }
 .sbtn{
     border: 2px solid black;
@@ -116,7 +119,7 @@ th > p{
     outline: none;
     text-decoration: none;
 
-    font-size: 22px;
+    font-size: 19px;
     letter-spacing: 1px;
     font-weight: 500;
 }
@@ -157,10 +160,10 @@ form > table > td{
     text-align: left;
 }
 .outertable{
-    width: 80rem;
+    width: 70rem;
 }
 .actioncol{
-    width: 5rem;
+    width: 4rem;
 }
 .bg-red{
     background-color: #d9515e;
@@ -189,6 +192,9 @@ form > table > td{
 .w7{
     width: 7rem;
 }
+.h3{
+    height:3rem;
+}
 .h5{
     height:5rem;
 }
@@ -216,7 +222,7 @@ form > table > td{
 }
 .summary_table{
     width: 80%;
-    margin: 200px auto;
+    margin: 10rem auto;
 }
 img{
     margin: 0 5px;
@@ -254,4 +260,32 @@ input:focus{
 .checkbox{
     width: auto;
     accent-color: black;
+}
+.card{
+    width: 14rem;
+    height: 7rem;
+    border: none;
+    border-radius: 15px;
+    float: right;
+    display:inline-block;
+    margin:  0 10px;
+    padding: 10px 20px;
+    top: 20px;
+    right: 20px;
+    color:black;
+}
+.card > h2{
+    color:black;
+    margin: 10px;
+    margin-left: 40px;
+    font-weight: 700;
+}
+.card > a{
+    display: block;
+    text-underline: black;
+    text-decoration: black;
+    font-family: Poppins, Helvetica;
+    margin: 0;
+    font-size: 14px;
+    text-decoration: black underline;
 }
