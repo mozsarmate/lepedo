@@ -1,7 +1,7 @@
 /**
- * getUsers
+ * getTransfers
  * @param objectrepository
- * @returns users data from db
+ * @returns all Transfer data from db
  */
 module.exports = function (objectrepository) {
     return function (req,res,next) {
