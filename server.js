@@ -2,10 +2,18 @@ var express = require('express');
 const path = require("path");
 var app = express();
 
+
+
+
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/list',(req,res,next) => {
     res.sendFile(__dirname+"/list.html");
+});
+app.get('/',(req,res,next) => {
+    res.sendFile(__dirname+"/summary.html");
 });
 app.get('/summary',(req,res,next) => {
     res.sendFile(__dirname+"/summary.html");
