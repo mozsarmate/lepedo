@@ -5,6 +5,7 @@
  */
 module.exports = function (objectrepository) {
     return function (req,res,next) {
-        return next;
+        res.locals.user = {id:1, name:"Gergő", revtag:"@buji9", color:"red"};
+        return next();
     }
 }

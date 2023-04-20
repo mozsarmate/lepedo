@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('header') -%>
+
+<div class="card bg-green">
+    <h5>Összesen elszámolt</h5>
+    <h2>25 682 Ft</h2>
+    <a href="/add_transfer">Új utalás</a>
+</div>
+<div class="card bg-blue">
+    <h5>Összesen költött</h5>
+    <h2>41 848 Ft</h2>
+    <a href="/add_expense">Új költés</a>
+</div>
+
+
+<div class="h3"></div>
+<div class="secdiv">
+    <table class="notable">
+        <tr>
+            <td>
+                <h3>Költések</h3>
+                <a href="/add_expense" class="sbtn"><h4> + Új költés </h4></a>
+            </td>
+            <td class="outertable">
+                <table>
+                    <tbody>
+                    <tr>
+                        <th><p>#</p></th>
+                        <th><p class="left">Megnevezés</p></th>
+                        <th><p>Dátum</p></th>
+                        <th><p>Fizetett</p></th>
+                        <th class="min-width"></th>
+                        <th><p>Résztvevők</p></th>
+                        <th class="w7"><p>Összeg</p></th>
+                        <th class="actioncol"></th>
+                    </tr>
+
+
+                    <% expenses.forEach(function(cur){ %>
+                        <tr>
+                            <td><p class="middle"><%=cur.id%></p></td>
+                            <td><p></p></td>
+                            <td><p class="middle"><%=cur.date%></p></td>
+                            <td class="middle"><div class="usertag bg-<%=users[userfrom-1].color%>">
+                                    <%=users[userfrom-1].name%>
+                            </div></td>
+                            <td><img class="arrow-right" src="/images/arrow-right.svg" alt="arrow-right" /></td>
+                            <td class="middle">
+                                <% cur.userto.forEach(function(curuser){%>
+                                <div class="usertag bg-<%=users[curuser-1].color%>">    <%=users[curuser-1].name%>    </div>
+                                <%});%>
+                            </td>
+                            <td><p class="right bold">    <%=cur.amount%>    </p></td>
+                            <td class="min-width right">
+                                <a href="/edit_expense/">
+                                    <img src="/images/pencil.svg" alt="edit" />
+                                </a>
+                                <a href="/delete_expense/">
+                                    <img src="/images/trash.svg" alt="delete" />
+                                </a>
+                            </td>
+                        </tr>
+                    <% }); %>>
+
+
+
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+<div class="secdiv">
+    <table class="notable">
+        <tr>
+            <td>
+                <h3>Utalások</h3>
+                <a href="/add_transfer" class="sbtn"><h4> + Új utalás </h4></a>
+            </td>
+            <td class="outertable">
+                <table>
+                    <tbody>
+                    <tr>
+                        <th><p>#</p></th>
+                        <th><p>Utaló</p></th>
+                        <th class="min-width"></th>
+                        <th class="w7"><p>Kedvezményezett</p></th>
+                        <th><p>Dátum</p></th>
+                        <th class="w7"><p>Összeg</p></th>
+                        <th class="actioncol"></th>
+                    </tr>
+                    <!--ISMETLES IDE-->
+                    <tr>
+                        <td><p class="middle">1</p></td>
+                        <td class="middle"><div class="usertag bg-blue">Marci</div></td>
+                        <td><img class="arrow-right" src="/images/arrow-right.svg" alt="arrow-right" /></td>
+                        <td class="middle min-width"><div class="usertag bg-red">Gergő</div></td>
+                        <td><p class="middle">2023.01.01.</p></td>
+                        <td><p class="right bold">7000 Ft</p></td>
+                        <td class="min-width right">
+                            <a href="/edit_transfer/">
+                                <img src="/images/pencil.svg" alt="edit" />
+                            </a>
+                            <a href="/delete_transfer/">
+                                <img src="/images/trash.svg" alt="delete" />
+                            </a>
+                        </td>
+                    </tr>
+                    <!--ISMETLES IDE-->
+
+
+
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

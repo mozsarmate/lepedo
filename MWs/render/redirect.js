@@ -8,6 +8,6 @@
 module.exports = function (objectrepository, link) {
     return function (req,res,next) {
         //TODO code here
-        return next;
+        return next();
     }
 }

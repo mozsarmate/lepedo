@@ -7,7 +7,7 @@
  */
 module.exports = function (objectrepository, template) {
     return function (req,res,next) {
-        res.render(template);
-        return next;
+        res.render(template, res.locals);
+        //return next();
     }
 }

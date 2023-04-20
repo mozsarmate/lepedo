@@ -1,23 +1,23 @@
-var getUserMW = require('/MWs/user/getUser.js');
-var getUsersMW = require('/MWs/user/getUsers.js');
-var saveUserMW = require('/MWs/user/saveUser.js');
-var delUserMW = require('/MWs/user/delUser.js');
+const getUserMW = require('../MWs/user/getUser.js');
+const getUsersMW = require('../MWs/user/getUsers.js');
+const saveUserMW = require('../MWs/user/saveUser.js');
+const delUserMW = require('../MWs/user/delUser.js');
 
-var getExpenseMW = require('/MWs/expense/getExpense.js');
-var getExpensesMW = require('/MWs/expense/getExpenses.js');
-var saveExpenseMW = require('/MWs/expense/saveExpense.js');
-var delExpenseMW = require('/MWs/expense/delExpense.js');
+const getExpenseMW = require('../MWs/expense/getExpense.js');
+const getExpensesMW = require('../MWs/expense/getExpenses.js');
+const saveExpenseMW = require('../MWs/expense/saveExpense.js');
+const delExpenseMW = require('../MWs/expense/delExpense.js');
 
-var getTransferMW = require('/MWs/transfer/getTransfer.js');
-var getTransfersMW = require('/MWs/transfer/getTransfers.js');
-var saveTransferMW = require('/MWs/transfer/saveTransfer.js');
-var delTransferMW = require('/MWs/transfer/delTransfer.js');
+const getTransferMW = require('../MWs/transfer/getTransfer.js');
+const getTransfersMW = require('../MWs/transfer/getTransfers.js');
+const saveTransferMW = require('../MWs/transfer/saveTransfer.js');
+const delTransferMW = require('../MWs/transfer/delTransfer.js');
 
-var calculateStatMW = require('/MWs/calculate/calculateStat.js');
-var calculateTableMW = require('/MWs/calculate/calculateTable.js');
+const calculateStatMW = require('../MWs/calculate/calculateStat.js');
+const calculateTableMW = require('../MWs/calculate/calculateTable.js');
 
-var renderMW = require('MWs/render/render.js');
-var redirectMW = require('MWs/render/redirect.js');
+const renderMW = require('../MWs/render/render.js');
+const redirectMW = require('../MWs/render/redirect.js');
 
 
 // TODO importing models as well HERE

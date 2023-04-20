@@ -7,6 +7,6 @@
  */
 module.exports = function (objectrepository, id) {
     return function (req,res,next) {
-        return next;
+        return next();
     }
 }

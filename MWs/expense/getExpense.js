@@ -5,6 +5,7 @@
  */
 module.exports = function (objectrepository) {
     return function (req,res,next) {
-        return next;
+        res.locals.expense = {id:1, name:"NuPhy", date:"2022.02.02.", userfrom:1, userto:[1,3], amount:44560 };
+        return next();
     }
 }
