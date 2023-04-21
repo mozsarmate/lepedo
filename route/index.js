@@ -54,16 +54,19 @@ module.exports = function(app){
 
 //add functions
     app.use('/add_user',
+        getUserMW(objRepo),
         saveUserMW(objRepo, -1),
         renderMW(objRepo,'add_user'));
 
     app.use('/add_expense',
         getUsersMW(objRepo),
+        getExpenseMW(objRepo),
         saveExpenseMW(objRepo, -1),
         renderMW(objRepo,'add_expense'));
 
     app.use('/add_transfer',
         getUsersMW(objRepo),
+        getTransferMW(objRepo),
         saveTransferMW(objRepo, -1),
         renderMW(objRepo,'add_transfer'));
 
@@ -75,11 +78,13 @@ module.exports = function(app){
         renderMW(objRepo,'add_user'));
 
     app.use('/edit_expense/:expenseid',
+        getUsersMW(objRepo),
         getExpenseMW(objRepo),
         saveExpenseMW(objRepo, -1),
         renderMW(objRepo,'add_expense'));
 
     app.use('/edit_transfer/:transferid',
+        getUsersMW(objRepo),
         getTransferMW(objRepo),
         saveTransferMW(objRepo, -1),
         renderMW(objRepo,'add_transfer'));
@@ -93,7 +98,7 @@ module.exports = function(app){
     app.get('/delete_expense/:expenseid',
         getExpenseMW(objRepo),
         delExpenseMW(objRepo, -1),
-        redirectMW(objRepo,'/summary'));
+        redirectMW(objRepo,'/list'));
 
     app.get('/delete_transfer/:transferid',
         getTransferMW(objRepo),

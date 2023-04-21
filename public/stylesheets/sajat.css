@@ -29,6 +29,7 @@ h2:hover{
 }
 .focused-title{
     color:black;
+    font-size: 22px;
 }
 h3{
     font-size: 44px;
@@ -159,6 +160,14 @@ form > table > td{
     width: 50%;
     text-align: left;
 }
+.scroll{
+    overflow: scroll;
+    overflow-x: hidden;
+    height:15.5rem;
+}
+.scroll::-webkit-scrollbar{
+    display:none;
+}
 .outertable{
     width: 70rem;
 }
@@ -169,19 +178,23 @@ form > table > td{
     background-color: #d9515e;
 }
 .bg-green{
-    background-color:#1dce79;
+    background-color: #51bb88;
 }
 .bg-teal{
     background-color: #0f8a8e;
 }
 .bg-orange{
-    background-color:darkorange;
+    background-color: #f86e0b;
+}
+.bg-yellow{
+    background-color: #ffb100;
 }
 .bg-purple{
     background-color: mediumpurple;
 }
 .bg-blue{
-    background-color: cornflowerblue;
+    //background-color: #00bbff;
+    background-color: #52bbe8;
 }
 .w3{
     width: 3rem;
@@ -261,18 +274,27 @@ input:focus{
     width: auto;
     accent-color: black;
 }
+.floating-top{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+}
 .card{
     width: 14rem;
     height: 7rem;
     border: none;
-    border-radius: 15px;
+    border-radius: 20px;
     float: right;
     display:inline-block;
-    margin:  0 10px;
+    margin:  10px 10px;
     padding: 10px 20px;
     top: 20px;
     right: 20px;
     color:black;
+}
+.card:hover{
+    box-shadow: 4px 4px 4px lightgray;
 }
 .card > h2{
     color:black;
@@ -289,3 +311,4 @@ input:focus{
     font-size: 14px;
     text-decoration: black underline;
 }
+

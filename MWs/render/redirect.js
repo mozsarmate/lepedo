@@ -7,7 +7,7 @@
  */
 module.exports = function (objectrepository, link) {
     return function (req,res,next) {
-        //TODO code here
+        res.redirect(".."+link);
         return next();
     }
 }
