@@ -1,35 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Lepedő - Összesítés</title>
-    <link rel="stylesheet" href="/stylesheets/sajat.css">
-</head>
-<body>
+<%- include('header') -%>
 
-<div class="card bg-red">
-    <h5>A spórolós</h5>
-    <h2>Gergő</h2>
-</div>
-<div class="card bg-green">
-    <h5>Összesen elszámolt</h5>
-    <h2>25 682 Ft</h2>
-    <a href="/add_transfer">Új utalás</a>
-</div>
-<div class="card bg-blue">
-    <h5>Összesen költött</h5>
-    <h2>41 848 Ft</h2>
-    <a href="/add_expense">Új költés</a>
+<div class="floating-top">
+    <div class="card bg-red">
+        <h5>A spórolós</h5>
+        <h2>    <%=spentleast%>    </h2>
+    </div>
+    <div class="card bg-green">
+        <h5>Összesen elszámolt</h5>
+        <h2>    <%=doneall%> Ft   </h2>
+        <a href="/add_transfer">Új utalás</a>
+    </div>
+    <div class="card bg-blue">
+        <h5>Összesen költött</h5>
+        <h2>    <%=spentall%> Ft    </h2>
+        <a href="/add_expense">Új költés</a>
+    </div>
 </div>
 
-
-<h1>Lepedő</h1>
-
-
-
-
-<a href="/summary"><h2>Összegzés</h2></a>
-<a href="/list"><h2>Tételek</h2></a>
 
 <table class="summary_table">
     <tbody>
@@ -41,59 +30,27 @@
         <th><p class="right">Utaltak neki</p></th>
         <th><p class="right">Összesített mérleg</p></th>
     </tr>
-    <!--ISMETLES IDE-->
+    <% users.forEach(function(cur){ %>
+    <% const curfinal = final.find(u => u.uid === cur.id) %>
     <tr>
         <td class="left">
-            <div class="usertag bg-blue">Marci</div>
-            <a href="/edit_user/">
+            <div class="usertag bg-<%=cur.color%>">    <%=cur.name%>     </div>
+            <a href="/edit_user/<%=cur.id%>">
                 <img src="/images/pencil.svg" alt="edit" />
             </a>
-            <a href="/delete_user/">
+            <a href="/delete_user/<%=cur.id%>">
                 <img src="/images/trash.svg" alt="delete" />
             </a>
         </td>
-        <td><p class="right">7000 Ft</p></td>
-        <td><p class="right">7000 Ft</p></td>
-        <td><p class="right">7000 Ft</p></td>
-        <td><p class="right">7000 Ft</p></td>
-        <td><p class="right bold">7000 Ft</p></td>
+        <td><p class="right">        <%=curfinal.spent%>        Ft    </p></td>
+        <td><p class="right">        <%=curfinal.paid %>        Ft    </p></td>
+        <td><p class="right">        <%=curfinal.transferfrom%> Ft    </p></td>
+        <td><p class="right">        <%=curfinal.transferto%>   Ft    </p></td>
+        <td><p class="right bold">   <%=curfinal.balance%>      Ft    </p></td>
 
     </tr>
-    <tr>
-        <td class="left">
-            <div class="usertag bg-red">Gergő</div>
-            <a href="/edit_user/">
-                <img src="/images/pencil.svg" alt="edit" />
-            </a>
-            <a href="/delete_user/">
-                <img src="/images/trash.svg" alt="delete" />
-            </a>
-        </td>
-        <td><p class="right">7000 Ft</p></td>
-        <td><p class="right">7000 Ft</p></td>
-        <td><p class="right">7000 Ft</p></td>
-        <td><p class="right">7000 Ft</p></td>
-        <td><p class="right bold">7000 Ft</p></td>
+    <% }); %>
 
-    </tr>
-    <tr>
-        <td class="left">
-            <div class="usertag bg-teal">Kristóf</div>
-            <a href="/edit_user/">
-                <img src="/images/pencil.svg" alt="edit" />
-            </a>
-            <a href="/delete_user/">
-                <img src="/images/trash.svg" alt="delete" />
-            </a>
-        </td>
-        <td><p class="right">7000 Ft</p></td>
-        <td><p class="right">7000 Ft</p></td>
-        <td><p class="right">7000 Ft</p></td>
-        <td><p class="right">7000 Ft</p></td>
-        <td><p class="right bold">7000 Ft</p></td>
-
-    </tr>
-    <!--ISMETLES IDE-->
     <tr class="notable">
         <td>
             <a href="/add_user" class="usertag only-outline"> + Új user </a>
