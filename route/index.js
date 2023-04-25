@@ -35,14 +35,6 @@ module.exports = function(app){
         calculateStatMW(objRepo),
         renderMW(objRepo,'list'));
 
-    app.get('/',
-        getUsersMW(objRepo),
-        getExpensesMW(objRepo),
-        getTransfersMW(objRepo),
-        calculateStatMW(objRepo),
-        calculateTableMW(objRepo),
-        renderMW(objRepo,'summary'));
-
     app.get('/summary',
         getUsersMW(objRepo),
         getExpensesMW(objRepo),
@@ -105,6 +97,13 @@ module.exports = function(app){
         delTransferMW(objRepo, -1),
         redirectMW(objRepo,'/list'));
 
+    app.get('/',
+        getUsersMW(objRepo),
+        getExpensesMW(objRepo),
+        getTransfersMW(objRepo),
+        calculateStatMW(objRepo),
+        calculateTableMW(objRepo),
+        renderMW(objRepo,'summary'));
 
     app.get('*',(req, res, next) => {
         res.status(404).sendFile(__dirname+'/error/404.html');

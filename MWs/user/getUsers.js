@@ -1,10 +1,22 @@
+const reqOption = require('../requireOption');
+
 /**
  * getUsers
  * @param objectrepository
  * @returns users data from db
  */
 module.exports = function (objectrepository) {
-    return function (req,res,next) {
+    const UserModel = reqOption(objectrepository, 'UserModel');
+    return function (req, res, next) {
+        UserModel.find({}, (err, users) => {
+            if(err) {
+                return next(err);
+            }
+            res.locals.users = users;
+            return next();
+        });
+
+        /*
         res.locals.users = [
             {id:1, name:"Gergő", revtag:"@buji9", color:"red"},
             {id:2, name:"Marci", revtag:"N/A", color:"blue"},
@@ -12,5 +24,6 @@ module.exports = function (objectrepository) {
             {id:4, name:"Máté", revtag:"@mozsarmate", color:"yellow"}
         ];
         return next();
-    }
-}
+        */
+    };
+};
