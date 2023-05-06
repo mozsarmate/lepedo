@@ -5,16 +5,16 @@ const reqOption = require('../requireOption');
  * @returns all Expense data from db
  */
 module.exports = function (objectrepository) {
-    const ExpenseModel = reqOption(objectrepository, 'ExpenseModel');
-    return function (req,res,next) {
-        ExpenseModel.find({}, (err, expenses )=> {
-            if (err) {
+    //const ExpenseModel = reqOption(objectrepository, 'ExpenseModel');
+    return function (req, res, next) {
+        res.locals.expenses = [];
+        objectrepository.Expense.find().populate('userfrom').populate('userto').exec( (err, expenses) => {
+            if (err || !expenses) {
                 return next(err);
             }
-
             res.locals.expenses = expenses;
             return next();
-        })
+        });
         /*
         res.locals.expenses = [
             {id:1, name:"NuPhy", date:"2023-02-02", userfrom:1, userto:[1,3], amount:44560 },

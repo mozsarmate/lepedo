@@ -8,10 +8,10 @@ const getExpensesMW = require('../MWs/expense/getExpenses.js');
 const saveExpenseMW = require('../MWs/expense/saveExpense.js');
 const delExpenseMW = require('../MWs/expense/delExpense.js');
 
-const getTransferMW = require('../MWs/transfer/getTransfer.js');
-const getTransfersMW = require('../MWs/transfer/getTransfers.js');
-const saveTransferMW = require('../MWs/transfer/saveTransfer.js');
-const delTransferMW = require('../MWs/transfer/delTransfer.js');
+const getTransferMW   = require('../MWs/transfer/getTransfer.js');
+const getTransfersMW  = require('../MWs/transfer/getTransfers.js');
+const saveTransferMW  = require('../MWs/transfer/saveTransfer.js');
+const delTransferMW   = require('../MWs/transfer/delTransfer.js');
 
 const calculateStatMW = require('../MWs/calculate/calculateStat.js');
 const calculateTableMW = require('../MWs/calculate/calculateTable.js');
@@ -19,14 +19,20 @@ const calculateTableMW = require('../MWs/calculate/calculateTable.js');
 const renderMW = require('../MWs/render/render.js');
 const redirectMW = require('../MWs/render/redirect.js');
 
+const trysave = require('../MWs/render/trysave');
 
-// TODO importing models as well HERE
 
+//importing models as well HERE
+const User = require('../models/userModel');
+const Expense = require('../models/expenseModel');
+const Transfer = require('../models/transferModel');
 
 module.exports = function(app){
     const objRepo = {
-        // TODO assinging models HERE
-    }
+        User : User,
+        Expense : Expense,
+        Transfer : Transfer,
+    };
 
     app.get('/list',
         getUsersMW(objRepo),
@@ -46,19 +52,19 @@ module.exports = function(app){
 
 //add functions
     app.use('/add_user',
-        getUserMW(objRepo),
+        //getUserMW(objRepo),
         saveUserMW(objRepo, -1),
         renderMW(objRepo,'add_user'));
 
     app.use('/add_expense',
         getUsersMW(objRepo),
-        getExpenseMW(objRepo),
+        //getExpenseMW(objRepo),
         saveExpenseMW(objRepo, -1),
         renderMW(objRepo,'add_expense'));
 
     app.use('/add_transfer',
         getUsersMW(objRepo),
-        getTransferMW(objRepo),
+        //getTransferMW(objRepo),
         saveTransferMW(objRepo, -1),
         renderMW(objRepo,'add_transfer'));
 
@@ -84,7 +90,7 @@ module.exports = function(app){
 //delete funcitions
     app.get('/delete_user/:userid',
         getUserMW(objRepo),
-        delUserMW(objRepo, -1),
+        delUserMW(objRepo),
         redirectMW(objRepo,'/summary'));
 
     app.get('/delete_expense/:expenseid',
@@ -97,13 +103,29 @@ module.exports = function(app){
         delTransferMW(objRepo, -1),
         redirectMW(objRepo,'/list'));
 
+    app.get('/demosave',
+        trysave(objRepo),
+        redirectMW(objRepo,'/summary')
+    );
+
+
+    //TODO app.get error
+
     app.get('/',
-        getUsersMW(objRepo),
-        getExpensesMW(objRepo),
-        getTransfersMW(objRepo),
-        calculateStatMW(objRepo),
-        calculateTableMW(objRepo),
-        renderMW(objRepo,'summary'));
+        redirectMW(objRepo, '/summary'));
+
+    app.get('/error/501',(req,res,next) => {
+        res.status(501).sendFile(__dirname+'/error/501.html');
+    });
+
+    app.get('/error/204',(req,res,next) => {
+        res.status(500).sendFile(__dirname+'/error/204.html');
+    });
+
+    app.get('/error/404',(req,res,next) => {
+        res.status(404).sendFile(__dirname+'/error/404.html');
+    });
+
 
     app.get('*',(req, res, next) => {
         res.status(404).sendFile(__dirname+'/error/404.html');
@@ -111,4 +133,8 @@ module.exports = function(app){
 
 
 
+
+
 }
+
+//TODO delete error folder from /route

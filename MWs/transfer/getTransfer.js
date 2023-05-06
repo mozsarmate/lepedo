@@ -5,7 +5,7 @@ const reqOption = require("../requireOption");
  * @returns specific expense data from db
  */
 module.exports = function (objectrepository) {
-    const TransferModel = reqOption(objectrepository, 'TransferModel');
+    //const TransferModel = reqOption(objectrepository, 'TransferModel');
     return function (req, res, next) {
         TransferModel.findOne({_id: req.params.transferid}, (err, transfer) => {
             if (err || !transfer)

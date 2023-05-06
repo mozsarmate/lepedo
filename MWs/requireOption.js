@@ -8,7 +8,9 @@ function requireOption(objectRepository, propertyName) {
     if (objectRepository && objectRepository[propertyName]) {
         return objectRepository[propertyName];
     }
-    throw new TypeError(`${propertyName} required`);
+    //throw new TypeError(`${propertyName} required`);
+    //throw new TypeError();
+    return undefined;
 }
 
 module.exports = requireOption;

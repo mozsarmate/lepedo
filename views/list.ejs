@@ -4,12 +4,12 @@
 <div class="floating-top">
     <div class="card bg-green">
         <h5>Összes utalás</h5>
-        <h2>    <%=tradb%> db   </h2>
+        <h2>    <%= tradb %> db </h2>
         <a href="/add_transfer">Új utalás</a>
     </div>
     <div class="card bg-blue">
         <h5>Összes költés</h5>
-        <h2>    <%=expdb%> db   </h2>
+        <h2>    <%= expdb %> db </h2>
         <a href="/add_expense">Új költés</a>
     </div>
 </div>
@@ -25,58 +25,57 @@
             </td>
             <td class="outertable">
                 <div class="scroll">
-                <table>
-                    <tbody>
-                    <tr>
-                        <th><p>#</p></th>
-                        <th><p class="left">Megnevezés</p></th>
-                        <th><p>Dátum</p></th>
-                        <th><p>Fizetett</p></th>
-                        <th class="min-width"></th>
-                        <th><p>Résztvevők</p></th>
-                        <th class="w7"><p>Összeg</p></th>
-                        <th class="actioncol"></th>
-                    </tr>
-
-
-                    <% expenses.forEach(function(cur){ %>
+                    <table>
+                        <tbody>
                         <tr>
-                            <td><p class="middle">    <%=cur.id%>    </p></td>
-                            <td><p>    <%=cur.name%>   </p></td>
-                            <td><p class="middle">    <%=cur.date%>    </p></td>
-                            <% const curuserfrom =  users.find(u => u.id === cur.userfrom) %>
-                            <td class="middle"><div class="usertag bg-<%= curuserfrom.color%>">
-                                    <%=curuserfrom.name%>
-                            </div></td>
-                            <td><img class="arrow-right" src="/images/arrow-right.svg" alt="arrow-right" /></td>
+                            <th><p>#</p></th>
+                            <th><p class="left">Megnevezés</p></th>
+                            <th><p>Dátum</p></th>
+                            <th><p>Fizetett</p></th>
+                            <th class="min-width"></th>
+                            <th><p>Résztvevők</p></th>
+                            <th class="w7"><p>Összeg</p></th>
+                            <th class="actioncol"></th>
+                        </tr>
+
+                        <% expenses.forEach(function(cur){ %>
+                        <tr>
+                            <td><p title="<%= cur._id%>" class="middle">   ... <%= cur._id.toString().slice(-4) %>    </p></td>
+                            <td><p>    <%= cur.name %>   </p></td>
+                            <td><p class="middle">    <%= cur.date %>    </p></td>
                             <td class="middle">
-                                <% cur.userto.forEach(function(curuser){%>
-                                    <% const curuserto = users.find(u => u.id === curuser) %>
-                                    <div class="usertag bg-<%= curuserto.color %>">    <%= curuserto.name %>    </div>
-                                <%});%>
+                                <% const curuserfrom =  users.find(u => u._id.toString() === cur.userfrom.toString()) %>
+                                <div class="usertag bg-<%= typeof cur.userfrom === 'undefined' ? '' : cur.userfrom.color %>">
+                                    <%= typeof cur.userfrom === 'undefined' ? '' : cur.userfrom.name %>
+                                </div>
                             </td>
-                            <td><p class="right bold">    <%=cur.amount%> Ft   </p></td>
+                            <td><img class="arrow-right" src="/images/arrow-right.svg" alt="arrow-right"/></td>
+                            <td class="middle">
+
+                                <% cur.userto.forEach(function(curuser){ %>
+                                    <div class="usertag bg-<%= typeof curuser === 'undefined' ? '' : curuser.color %>">    <%= typeof curuser === 'undefined' ? '' : curuser.name %>    </div>
+                                <% }); %>
+
+                            </td>
+                            <td><p class="right bold">    <%= cur.amount %> Ft </p></td>
                             <td class="min-width right">
-                                <a href="/edit_expense/<%=cur.id%>">
-                                    <img src="/images/pencil.svg" alt="edit" />
+                                <a href="/edit_expense/<%= cur._id %>">
+                                    <img src="/images/pencil.svg" alt="edit"/>
                                 </a>
-                                <a href="/delete_expense/<%=cur.id%>">
-                                    <img src="/images/trash.svg" alt="delete" />
+                                <a href="/delete_expense/<%= cur._id %>">
+                                    <img src="/images/trash.svg" alt="delete"/>
                                 </a>
                             </td>
                         </tr>
-                    <% }); %>
+                        <% }); %>
 
-
-
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
                 </div>
             </td>
         </tr>
     </table>
 </div>
-
 
 
 <div class="secdiv">
@@ -100,27 +99,30 @@
                             <th class="actioncol"></th>
                         </tr>
                         <% transfers.forEach(function(cur){ %>
-                            <tr>
-                                <td><p class="middle">   <%=cur.id%>   </p></td>
-                                <% const curuserfrom =  users.find(u => u.id === cur.userfrom) %>
-                                <td class="middle"><div class="usertag bg-<%=curuserfrom.color%>">    <%=curuserfrom.name %>    </div></td>
-                                <td><img class="arrow-right" src="/images/arrow-right.svg" alt="arrow-right" /></td>
+                        <tr>
+                            <td><p class="middle">   <%= cur._id %>   </p></td>
+                            <% const curuserfrom = users.find(u => u._id === cur.userfrom) %>
+                            <td class="middle">
+                                <div class="usertag bg-<%= curuserfrom.color %>">    <%= curuserfrom.name %>    </div>
+                            </td>
+                            <td><img class="arrow-right" src="/images/arrow-right.svg" alt="arrow-right"/></td>
 
-                                <% const curuserto =  users.find(u => u.id === cur.userto) %>
-                                <td class="middle min-width"><div class="usertag bg-<%=curuserto.color%>">    <%=curuserto.name %>    </div></td>
-                                <td><p class="middle">     <%=cur.date%>     </p></td>
-                                <td><p class="right bold">      <%=cur.amount%>    Ft</p></td>
-                                <td class="min-width right">
-                                    <a href="/edit_transfer/<%=cur.id%>">
-                                        <img src="/images/pencil.svg" alt="edit" />
-                                    </a>
-                                    <a href="/delete_transfer/<%=cur.id%>">
-                                        <img src="/images/trash.svg" alt="delete" />
-                                    </a>
-                                </td>
-                            </tr>
+                            <% const curuserto = users.find(u => u._id === cur.userto) %>
+                            <td class="middle min-width">
+                                <div class="usertag bg-<%= curuserto.color %>">    <%= curuserto.name %>    </div>
+                            </td>
+                            <td><p class="middle">     <%= cur.date %>     </p></td>
+                            <td><p class="right bold">      <%= cur.amount %> Ft</p></td>
+                            <td class="min-width right">
+                                <a href="/edit_transfer/<%= cur._id %>">
+                                    <img src="/images/pencil.svg" alt="edit"/>
+                                </a>
+                                <a href="/delete_transfer/<%= cur._id %>">
+                                    <img src="/images/trash.svg" alt="delete"/>
+                                </a>
+                            </td>
+                        </tr>
                         <% }); %>
-
 
                         </tbody>
                     </table>

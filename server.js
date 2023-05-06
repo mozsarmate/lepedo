@@ -1,31 +1,20 @@
-
-const usermodel = require('./models/userModel.js');
-const expensemodel = require('./models/expenseModel.js');
-const transfermodel = require('./models/transferModel.js');
-
-let cu = new usermodel();
-cu.id = 4;
-cu.name = "alma";
-cu.color = "red";
-cu.revtag = "bujdi9";
-let output;
-(async() => {
-    output = await cu.save();
-});
-console.log(output);
-console.log("minden ok");
-/*
-
 var express = require('express');
 const path = require("path");
 var app = express();
-
-
-app.set("view engine","ejs");
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.set("view engine","ejs");
 
 //Load routing
 require('./route/index')(app);
+
+
+
+
+
+//----------------
 
 //deprecated routing is down here
 /*
@@ -77,7 +66,7 @@ app.get('*',(req, res, next) => {
 });
 */
 
-/*
+
 app.listen(3000,()=>{
     console.log("esku megy");
-});*/
+});

@@ -5,15 +5,17 @@ const reqOption = require('../requireOption');
  * @returns all Transfer data from db
  */
 module.exports = function (objectrepository) {
-    const TransferModel = reqOption(objectrepository, 'UserModel');
+    //const TransferModel = reqOption(objectrepository, 'UserModel');
     return function (req, res, next) {
-        TransferModel.find({}, (err, transfers) => {
-            if(err) {
+        res.locals.transfers = [];
+        objectrepository.Transfer.find({}, (err, transfers) => {
+            if (err || !transfers) {
                 return next(err);
             }
             res.locals.transfers = transfers;
             return next();
         });
+
         /*
         res.locals.transfers = [
             {id:1, date:"2023-04-01", userfrom:4, userto:1, amount:10000 },

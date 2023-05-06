@@ -142,6 +142,22 @@ th > p{
 .usertag:hover{
     box-shadow: 4px 4px 4px lightgray;
 }
+.hideonhover{
+    transition-duration: 1s;
+}
+.showonhover{
+    display : none;
+    opacity: 0;
+    transition-duration: 1s;
+}
+.hideonhover:hover {
+    display : none;
+}
+.hideonhover:hover +.showonhover{
+    display: inline-block;
+    opacity: 1;
+    box-shadow: 4px 4px 4px lightgray;
+}
 .only-outline{
     background-color: white;
     border: 2px black solid;
@@ -196,6 +212,30 @@ form > table > td{
     //background-color: #00bbff;
     background-color: #52bbe8;
 }
+/*-----
+.bgo-red{
+    background-color: #d9515e12;
+
+}
+.bgo-green{
+    background-color: #51bb8812;
+}
+.bgo-teal{
+    background-color: #0f8a8e12;
+}
+.bgo-orange{
+    background-color: #f86e0b12;
+}
+.bgo-yellow{
+    background-color: #ffb10012;
+}
+.bgo-purple{
+    background-color: #9370DB12;
+}
+.bgo-blue{
+//background-color: #00bbff;
+    background-color: #52bbe812;
+}*/
 .w3{
     width: 3rem;
 }
@@ -213,6 +253,9 @@ form > table > td{
 }
 .h10{
     height:10rem;
+}
+.mw30{
+    max-width: 30%;
 }
 .right{
     text-align: right;
@@ -235,6 +278,7 @@ form > table > td{
 }
 .summary_table{
     width: 80%;
+    table-layout: fixed;
     margin: 10rem auto;
 }
 img{
@@ -292,6 +336,11 @@ input:focus{
     top: 20px;
     right: 20px;
     color:black;
+}
+@media (max-width:1270px) {
+    .card{
+        display: none;
+    }
 }
 .card:hover{
     box-shadow: 4px 4px 4px lightgray;

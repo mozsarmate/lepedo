@@ -23,7 +23,7 @@
 <table class="summary_table">
     <tbody>
     <tr>
-        <th><p class="left">#</p></th>
+        <th><p class="left mw30">#</p></th>
         <th><p class="right">Költésben részesült</p></th>
         <th><p class="right">Fizetett</p></th>
         <th><p class="right">Utalt</p></th>
@@ -31,14 +31,15 @@
         <th><p class="right">Összesített mérleg</p></th>
     </tr>
     <% users.forEach(function(cur){ %>
-    <% const curfinal = final.find(u => u.uid === cur.id) %>
-    <tr>
+    <% const curfinal = final.find(u => u.uid === cur._id) %>
+    <tr class="bgo-<%=cur.color%>">
         <td class="left">
-            <div class="usertag bg-<%=cur.color%>">    <%=cur.name%>     </div>
-            <a href="/edit_user/<%=cur.id%>">
+            <div class="usertag bg-<%=cur.color%> hideonhover">    <%=cur.name%>     </div>
+            <div class="usertag bg-<%=cur.color%> showonhover">    @<%=cur.revtag%>     </div>
+            <a href="/edit_user/<%=cur._id%>">
                 <img src="/images/pencil.svg" alt="edit" />
             </a>
-            <a href="/delete_user/<%=cur.id%>">
+            <a href="/delete_user/<%=cur._id%>">
                 <img src="/images/trash.svg" alt="delete" />
             </a>
         </td>

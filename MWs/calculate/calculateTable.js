@@ -11,22 +11,23 @@ module.exports = function (objectrepository) {
         let t = res.locals.transfers;
         let final = [];
         u.forEach(cur => {
-            let curfinal = {uid:cur.id, spent:0, paid:0, transferfrom:0, transferto:0, balance:0};
+            let curfinal = {uid:cur._id, spent:0, paid:0, transferfrom:0, transferto:0, balance:0};
             e.forEach(cure => {
                 console.log(cure);
-                if (cure.userfrom === cur.id) {
+                if (cure.userfrom === cur._id) {
+                    
                     curfinal.paid += cure.amount;
 
                 }
-                if (cure.userto.includes(cur.id)) {
+                if (cure.userto.includes(cur._id)) {
                     curfinal.spent += Math.round((cure.amount) / cure.userto.length);
                 }
             });
             t.forEach(curt => {
-                if (curt.userfrom === cur.id){
+                if (curt.userfrom === cur._id){
                     curfinal.transferfrom += curt.amount;
                 }
-                if (curt.userto === cur.id){
+                if (curt.userto === cur._id){
                     curfinal.transferto += curt.amount;
                 }
             });

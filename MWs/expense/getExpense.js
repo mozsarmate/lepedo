@@ -5,11 +5,11 @@ const reqOption = require("../requireOption");
  * @returns specific expense data from db
  */
 module.exports = function (objectrepository) {
-    const ExpenseModel = reqOption(objectrepository, 'ExpenseModel');
+    //const ExpenseModel = reqOption(objectrepository, 'ExpenseModel');
     return function (req, res, next) {
-        ExpenseModel.findOne({_id: req.params.expenseid}, (err, expense) => {
+        objectrepository.Expense.findOne({_id: req.params.expenseid}, (err, expense) => {
             if (err || !expense)
-                return next();
+                return res.redirect('/error/204');
             res.locals.expense = expense;
             return next();
         });

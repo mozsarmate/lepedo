@@ -6,11 +6,12 @@ const reqOption = require('../requireOption');
  * @returns users data from db
  */
 module.exports = function (objectrepository) {
-    const UserModel = reqOption(objectrepository, 'UserModel');
+    //const UserModel = reqOption(objectrepository, 'UserModel');
     return function (req, res, next) {
-        UserModel.find({}, (err, users) => {
+
+        objectrepository.User.find({}, (err, users) => {
             if(err) {
-                return next(err);
+                return res.redirect('/add_user');
             }
             res.locals.users = users;
             return next();
