@@ -61,8 +61,8 @@ module.exports = function (objectrepository, id) {
         res.locals.expense.userto = [];
 
         res.locals.users.forEach(element =>{
-            console.log(element);
-            if (req.body.payedto.includes(element._id)) {
+            console.log(element.name);
+            if (req.body.payedto.includes(element._id.toString())) {
                 console.log("goes in");
                 res.locals.expense.userto.push(element._id);
             }

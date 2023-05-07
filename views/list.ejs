@@ -28,7 +28,7 @@
                     <table>
                         <tbody>
                         <tr>
-                            <th><p>#</p></th>
+                            <th><p class="left"> &nbsp; &nbsp; #</p></th>
                             <th><p class="left">Megnevezés</p></th>
                             <th><p>Dátum</p></th>
                             <th><p>Fizetett</p></th>
@@ -40,7 +40,7 @@
 
                         <% expenses.forEach(function(cur){ %>
                         <tr>
-                            <td><p title="<%= cur._id%>" class="middle">   ... <%= cur._id.toString().slice(-4) %>    </p></td>
+                            <td><p title="<%= cur._id%>" class="left">   ...<%= cur._id.toString().slice(-4) %>    </p></td>
                             <td><p>    <%= cur.name %>   </p></td>
                             <td><p class="middle">    <%= cur.date %>    </p></td>
                             <td class="middle">
