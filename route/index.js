@@ -38,78 +38,78 @@ module.exports = function(app){
         getUsersMW(objRepo),
         getExpensesMW(objRepo),
         getTransfersMW(objRepo),
-        calculateStatMW(objRepo),
+        calculateStatMW(objRepo,'list'),
         renderMW(objRepo,'list'));
 
     app.get('/summary',
         getUsersMW(objRepo),
         getExpensesMW(objRepo),
         getTransfersMW(objRepo),
-        calculateStatMW(objRepo),
         calculateTableMW(objRepo),
+        calculateStatMW(objRepo,'summary'),
         renderMW(objRepo,'summary'));
 
 
 //add functions
     app.use('/add_user',
         //getUserMW(objRepo),
-        saveUserMW(objRepo, -1),
+        saveUserMW(objRepo),
         renderMW(objRepo,'add_user'));
 
     app.use('/add_expense',
         getUsersMW(objRepo),
         //getExpenseMW(objRepo),
-        saveExpenseMW(objRepo, -1),
+        saveExpenseMW(objRepo),
         renderMW(objRepo,'add_expense'));
 
     app.use('/add_transfer',
         getUsersMW(objRepo),
         //getTransferMW(objRepo),
-        saveTransferMW(objRepo, -1),
+        saveTransferMW(objRepo),
         renderMW(objRepo,'add_transfer'));
 
 
 //edit funcitions
     app.use('/edit_user/:userid',
         getUserMW(objRepo),
-        saveUserMW(objRepo, -1),
+        saveUserMW(objRepo),
         renderMW(objRepo,'add_user'));
 
     app.use('/edit_expense/:expenseid',
         getUsersMW(objRepo),
         getExpenseMW(objRepo),
-        saveExpenseMW(objRepo, -1),
+        saveExpenseMW(objRepo),
         renderMW(objRepo,'add_expense'));
 
     app.use('/edit_transfer/:transferid',
         getUsersMW(objRepo),
         getTransferMW(objRepo),
-        saveTransferMW(objRepo, -1),
+        saveTransferMW(objRepo),
         renderMW(objRepo,'add_transfer'));
 
 //delete funcitions
     app.get('/delete_user/:userid',
+        getUsersMW(objRepo),
+        getExpensesMW(objRepo),
+        getTransfersMW(objRepo),
         getUserMW(objRepo),
         delUserMW(objRepo),
         redirectMW(objRepo,'/summary'));
 
     app.get('/delete_expense/:expenseid',
         getExpenseMW(objRepo),
-        delExpenseMW(objRepo, -1),
+        delExpenseMW(objRepo),
         redirectMW(objRepo,'/list'));
 
     app.get('/delete_transfer/:transferid',
         getTransferMW(objRepo),
-        delTransferMW(objRepo, -1),
+        delTransferMW(objRepo),
         redirectMW(objRepo,'/list'));
 
     app.get('/demosave',
         trysave(objRepo),
         redirectMW(objRepo,'/summary')
     );
-
-
-    //TODO app.get error
 
     app.get('/',
         redirectMW(objRepo, '/summary'));
@@ -119,7 +119,7 @@ module.exports = function(app){
     });
 
     app.get('/error/204',(req,res,next) => {
-        res.status(500).sendFile(__dirname+'/error/204.html');
+        res.status(204).sendFile(__dirname+'/error/204.html');
     });
 
     app.get('/error/404',(req,res,next) => {
@@ -127,14 +127,21 @@ module.exports = function(app){
     });
 
 
+    app.use((err, req, res, next) => {
+        console.log('error detected', err);
+        if (err.status === 204) {
+            console.log("Error 204");
+            res.status(404).sendFile(__dirname + '/error/204.html');
+        }
+        else if (err.status === 405) {
+            console.log("Error 405");
+            res.status(405).sendFile(__dirname + '/error/405.html');
+        }
+    });
+
+
     app.get('*',(req, res, next) => {
         res.status(404).sendFile(__dirname+'/error/404.html');
     });
 
-
-
-
-
 }
-
-//TODO delete error folder from /route

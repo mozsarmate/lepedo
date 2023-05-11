@@ -1,16 +1,39 @@
 /**
  * calculateStat
- * @param objectrepository, transfer id
+ * @param objectrepository
+ * @param page to know what stats we need
  * transfers statistical data to the frontend
  * @returns function(*, *, *): *
  */
-module.exports = function (objectrepository) {
+module.exports = function (objectrepository, page) {
     return function (req,res,next) {
-        res.locals.spentall = 41848;
-        res.locals.doneall = 25682;
-        res.locals.spentleast = "Kristóf";
-        res.locals.expdb = 7;
-        res.locals.tradb = 3;
+        if(page === 'list'){
+            res.locals.expdb = res.locals.expenses.length;
+            res.locals.tradb = res.locals.transfers.length;
+        }
+        else if(page === 'summary') {
+            let spentall = 0;
+            res.locals.expenses.forEach(cur => {
+                spentall += cur.amount;
+            });
+            res.locals.spentall = spentall;
+
+            let doneall = 0;
+            let curmin = res.locals.final[res.locals.users[0]._id].spent;
+            let curminname = res.locals.users[0].name;
+            res.locals.users.forEach(cur => {
+               if(res.locals.final[cur._id].balance < 0) doneall += res.locals.final[cur._id].balance;
+               if(cur.spent < curmin){
+                   curmin = cur.spent;
+                   curminname = cur.name;
+               }
+            });
+            doneall += spentall;
+            res.locals.doneall = doneall;
+
+            res.locals.spentleast = curminname;
+        }
+
         return next();
     }
 }

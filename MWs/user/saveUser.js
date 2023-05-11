@@ -9,11 +9,10 @@ const colors = Array('red', 'green', 'orange', 'teal', 'yellow', 'purple', 'blue
 /**
  * saveUser
  * @param objectrepository
- * @param id
  * saves user data to db (both create and edit)
  * @returns next
  */
-module.exports = function (objectrepository, id) {
+module.exports = function (objectrepository) {
     return function (req,res,next) {
         if (typeof req.body.name === 'undefined' || typeof req.body.revtag === 'undefined' || data_is_not_ok(req.body.name))
             return next();

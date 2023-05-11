@@ -6,8 +6,8 @@
 <div class="h5"></div>
 <div class="middle">
     <form method="post">
-        <input placeholder="Dátum" type="date" value="<%=transfer.date%>"><br>
-        <input placeholder="Összeg" type="number" value="<%=transfer.amount%>"><br>
+        <input required placeholder="Dátum" type="date" name="date" value="<%= (typeof transfer === 'undefined') ? new Date().toISOString().slice(0,10) : transfer.date %>" autofocus><br>
+        <input required placeholder="Összeg" type="number" name="amount" value="<%= (typeof transfer === 'undefined') ? '' : transfer.amount %>"><br>
         <table class="notable">
             <tr>
                 <td><h5>Utaló</h5></td>
@@ -18,8 +18,8 @@
                 <td class="left">
 
                     <%users.forEach(function(cur){%>
-                        <input type="radio" id="a<%=cur.id%>" value="value" class="radio" <%if (transfer.userfrom === cur.id){ %> checked <%}%> name="payed">
-                        <label for="a<%=cur.id%>">
+                        <input required type="radio" id="a<%=cur._id%>" value="<%=cur._id%>" class="radio" <%  if (typeof transfer !== 'undefined') if (transfer.userfrom._id.toString() === cur._id.toString()){ %> checked <%}%> name="payed">
+                        <label for="a<%=cur._id%>">
                             <div class="usertag bg-<%=cur.color%>">    <%=cur.name%>     </div><br>
                         </label>
                     <%});%>
@@ -27,10 +27,10 @@
                 <td><img class="arrow-right" src="/images/arrow-right.svg" alt="arrow-right" /></td>
                 <td class="right">
                     <%users.forEach(function(cur){%>
-                        <label for="b<%=cur.id%>">
+                        <label for="b<%=cur._id%>">
                             <div class="usertag bg-<%=cur.color%>">    <%=cur.name%>     </div>
                         </label>
-                        <input type="radio" id="b<%=cur.id%>" value="value" class="radio" <%if (transfer.userto === cur.id){ %> checked <%}%> name="payedto"><br>
+                        <input required type="radio" id="b<%=cur._id%>" value="<%=cur._id%>" class="radio" <% if(typeof transfer !== 'undefined') {if (transfer.userto._id.toString() === cur._id.toString()){ %> checked <%}}%> name="payedto"><br>
                     <%});%>
                 </td>
             </tr>
@@ -38,7 +38,7 @@
 
         <div class="h5"></div>
         <input class="sbtn_with_h4" type="submit" value="Mentés">
-        <a class="sbtn" href="/summary"><h4>Mégse</h4></a>
+        <a class="sbtn" href="/list"><h4>Mégse</h4></a>
     </form>
 </div>
 

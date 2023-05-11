@@ -132,7 +132,7 @@ th > p{
     border: 0px;
     border-radius: 50px;
     display: inline-block;
-    margin: 2px 5px;
+    margin: 2px 2px;
     padding: 3px 10px;
     font-family: "Poppins", Helvetica;
     color: white;
@@ -279,7 +279,7 @@ form > table > td{
 .summary_table{
     width: 80%;
     table-layout: fixed;
-    margin: 10rem auto;
+    margin: 7rem auto;
 }
 img{
     margin: 0 5px;
@@ -300,9 +300,11 @@ input{
 input:hover{
     border-color: black;
     outline:none;
+    /*box-shadow: 0 2px 4px lightgray;*/
 }
 input:focus{
     border-width: 0 0 3px 0;
+    /*box-shadow: 0 4px 4px lightgray;*/
 }
 .sbtn_with_h4:focus{
     border: 2px solid black;
@@ -313,10 +315,20 @@ input:focus{
 }
 .radio:hover{
     border:red 2px solid;
+    box-shadow:none;
+}
+.radio:focus{
+    box-shadow: none;
 }
 .checkbox{
     width: auto;
     accent-color: black;
+}
+.checkbox:hover{
+    box-shadow: none;
+}
+.checkbox:focus{
+    box-shadow: none;
 }
 .floating-top{
     position: absolute;

@@ -1,5 +1,3 @@
-//TODO normalize is_wrong functions
-
 function name_is_wrong(name) {
    return name.length < 3 || name.length > 15;
 }
@@ -29,11 +27,10 @@ function payedto_is_wrong(date) {
 /**
  * saveExpense
  * @param objectrepository
- * @param id
  * saves expense data to db (both create and edit)
  * @returns next
  */
-module.exports = function (objectrepository, id) {
+module.exports = function (objectrepository) {
     return function (req, res, next) {
         if (typeof req.body.name === "undefined" ||
             typeof req.body.date === "undefined" ||
@@ -48,6 +45,7 @@ module.exports = function (objectrepository, id) {
             date_is_wrong(req.body.date) ||
             payed_is_wrong(req.body.date) ||
             payedto_is_wrong(req.body.date)) {
+            return next();
         }
 
         if(typeof res.locals.expense === "undefined"){
@@ -67,7 +65,6 @@ module.exports = function (objectrepository, id) {
                 res.locals.expense.userto.push(element._id);
             }
         })
-        console.log(res.locals.expense);
 
         res.locals.expense.save(err => {
             if (err) {
@@ -75,6 +72,6 @@ module.exports = function (objectrepository, id) {
             }
 
             return res.redirect('/list');
-        })
+        });
     }
 }

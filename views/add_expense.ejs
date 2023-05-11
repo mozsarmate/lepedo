@@ -6,9 +6,9 @@
 <div class="h5"></div>
 <div class="middle">
     <form method="post">
-        <input placeholder="Megnevezés" name="name" value="<%= (typeof expense === 'undefined') ? '' : expense.name%>" minlength="3" maxlength="15"><br>
-        <input placeholder="Dátum" name="date" type="date" value="<%= (typeof expense === 'undefined') ? '' : expense.date%>"><br>
-        <input placeholder="Összeg" name="amount" type="number" value="<%= (typeof expense === 'undefined') ? '' : expense.amount%>" min="0" max="10000000"><br>
+        <input required placeholder="Megnevezés" name="name" value="<%= (typeof expense === 'undefined') ? '' : expense.name%>" minlength="3" maxlength="15" autofocus><br>
+        <input required placeholder="Dátum" name="date" type="date" value="<%= (typeof expense === 'undefined') ? new Date().toISOString().slice(0,10) : expense.date%>"><br>
+        <input required placeholder="Összeg" name="amount" type="number" value="<%= (typeof expense === 'undefined') ? '' : expense.amount%>" min="0" max="10000000"><br>
         <table class="notable">
             <tr>
                 <td><h5>Fizetett</h5></td>
@@ -18,7 +18,7 @@
             <tr>
                 <td class="left">
                     <%users.forEach(function(cur){%>
-                        <input type="radio" id="a<%=cur._id%>" value="<%=cur._id%>" class="radio" <%if (typeof expense !== "undefined") {if (expense.userfrom === (cur._id)){ %> checked <%}}%> name="payed">
+                        <input required type="radio" id="a<%=cur._id%>" value="<%=cur._id%>" class="radio" <%if (typeof expense !== "undefined") {if (expense.userfrom._id.toString() === cur._id.toString()){ %> checked <%}}%> name="payed">
                         <label for="a<%=cur._id%>">
                             <div class="usertag bg-<%=cur.color%>">    <%=cur.name%>     </div><br>
                         </label>
@@ -36,7 +36,7 @@
                         <label for="b<%=cur._id%>">
                             <div class="usertag bg-<%=cur.color%>">    <%=cur.name%>     </div>
                         </label>
-                        <input type="checkbox" id="b<%=cur._id%>" value="<%=cur._id%>" class="checkbox" <%if (typeof expense !== "undefined") { if (expense.userto.includes(cur._id)){ %> checked <%}}%> name="payedto"><br>
+                        <input type="checkbox" id="b<%=cur._id%>" value="<%=cur._id%>" class="checkbox" <%if (typeof expense !== "undefined") { if (expense.userto.toString().includes(cur._id.toString())){ %> checked <%}}%> name="payedto"><br>
                     <%});%>
                     <!--
                     <label for="b3">
@@ -50,7 +50,7 @@
 
         <div class="h5"></div>
         <input class="sbtn_with_h4" type="submit" value="Mentés">
-        <a class="sbtn" href="/summary"><h4>Mégse</h4></a>
+        <a class="sbtn" href="/list"><h4>Mégse</h4></a>
     </form>
 </div>
 

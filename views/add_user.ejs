@@ -6,8 +6,8 @@
 <div class="h10"></div>
 <div class="middle">
   <form method="post">
-    <input placeholder="Név" name="name" minlength="3" autofocus value="<%= (typeof user === 'undefined') ? '' : user.name%>"><br>
-    <input placeholder="@revtag" name="revtag" value="<%= (typeof user === 'undefined') ? '' : user.revtag%>"><br>
+    <input required placeholder="Név" name="name" minlength="3" autofocus value="<%= (typeof user === 'undefined') ? '' : user.name%>"><br>
+    <input required placeholder="@revtag" name="revtag" value="<%= (typeof user === 'undefined') ? '' : user.revtag%>"><br>
     <div class="h5"></div>
     <input class="sbtn_with_h4" type="submit" value="Mentés">
     <a class="sbtn" href="/summary"><h4>Mégse</h4></a>

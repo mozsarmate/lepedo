@@ -5,21 +5,25 @@
 <div class="floating-top">
     <div class="card bg-red">
         <h5>A spórolós</h5>
-        <h2>    <%=spentleast%>    </h2>
+        <h2>    <%= spentleast %>    </h2>
     </div>
     <div class="card bg-green">
         <h5>Összesen elszámolt</h5>
-        <h2>    <%=doneall%> Ft   </h2>
+        <h2 class="middle">    <%= doneall.toLocaleString({
+                minimumIntegerDigits: 3,
+                useGrouping: true
+            }).replace(/,/g, ' ') %> Ft </h2>
         <a href="/add_transfer">Új utalás</a>
     </div>
     <div class="card bg-blue">
         <h5>Összesen költött</h5>
-        <h2>    <%=spentall%> Ft    </h2>
+        <h2 class="middle">    <%= spentall.toLocaleString({
+                minimumIntegerDigits: 3,
+                useGrouping: true
+            }).replace(/,/g, ' ') %> Ft </h2>
         <a href="/add_expense">Új költés</a>
     </div>
 </div>
-
-
 <table class="summary_table">
     <tbody>
     <tr>
@@ -30,26 +34,42 @@
         <th><p class="right">Utaltak neki</p></th>
         <th><p class="right">Összesített mérleg</p></th>
     </tr>
-    <% users.forEach(function(cur){ %>
-    <% const curfinal = final.find(u => u.uid === cur._id) %>
-    <tr class="bgo-<%=cur.color%>">
-        <td class="left">
-            <div class="usertag bg-<%=cur.color%> hideonhover">    <%=cur.name%>     </div>
-            <div class="usertag bg-<%=cur.color%> showonhover">    @<%=cur.revtag%>     </div>
-            <a href="/edit_user/<%=cur._id%>">
-                <img src="/images/pencil.svg" alt="edit" />
-            </a>
-            <a href="/delete_user/<%=cur._id%>">
-                <img src="/images/trash.svg" alt="delete" />
-            </a>
-        </td>
-        <td><p class="right">        <%=curfinal.spent%>        Ft    </p></td>
-        <td><p class="right">        <%=curfinal.paid %>        Ft    </p></td>
-        <td><p class="right">        <%=curfinal.transferfrom%> Ft    </p></td>
-        <td><p class="right">        <%=curfinal.transferto%>   Ft    </p></td>
-        <td><p class="right bold">   <%=curfinal.balance%>      Ft    </p></td>
 
-    </tr>
+    <% users.forEach(function(cur){ %>
+
+        <tr class="bgo-<%= cur.color %>">
+            <td class="left">
+                <div class="usertag bg-<%= cur.color %> hideonhover">    <%= cur.name %>     </div>
+                <div class="usertag bg-<%= cur.color %> showonhover"> @<%= cur.revtag %>     </div>
+                <a href="/edit_user/<%= cur._id %>">
+                    <img src="/images/pencil.svg" alt="edit"/>
+                </a>
+                <a  <% if(final[cur._id].deleteable===1) {%> href="/delete_user/<%= cur._id %>" <% } else { %> style="opacity: 50%;" title="A user még résztvesz legalább 1 tranzakcióban, ezért nem törölhető." <% } %> >
+                    <img src="/images/trash.svg" alt="delete"/>
+                </a>
+            </td>
+            <td><p class="right">        <%= final[cur._id].spent.toLocaleString({
+                        minimumIntegerDigits: 3,
+                        useGrouping: true
+                    }).replace(/,/g, ' ') %> Ft </p></td>
+            <td><p class="right">        <%= final[cur._id].paid.toLocaleString({
+                        minimumIntegerDigits: 3,
+                        useGrouping: true
+                    }).replace(/,/g, ' ') %> Ft </p></td>
+            <td><p class="right">        <%= final[cur._id].transferfrom.toLocaleString({
+                        minimumIntegerDigits: 3,
+                        useGrouping: true
+                    }).replace(/,/g, ' ') %> Ft </p></td>
+            <td><p class="right">        <%= final[cur._id].transferto.toLocaleString({
+                        minimumIntegerDigits: 3,
+                        useGrouping: true
+                    }).replace(/,/g, ' ') %> Ft </p></td>
+            <td><p class="right bold">   <%= final[cur._id].balance.toLocaleString({
+                        minimumIntegerDigits: 3,
+                        useGrouping: true
+                    }).replace(/,/g, ' ') %> Ft </p></td>
+
+        </tr>
     <% }); %>
 
     <tr class="notable">
@@ -63,6 +83,7 @@
 
 
     </tbody>
+
 </table>
 <div class="middle">
 

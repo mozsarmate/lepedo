@@ -9,8 +9,12 @@ module.exports = function (objectrepository) {
     return function (req, res, next) {
         objectrepository.User.findOne({_id: req.params.userid}, (err, user) => {
             if (err || !user) {
-                console.log('redirected');
-                return res.redirect('/error/204');
+                if(!err){
+                    var err2 = new Error("204");
+                    err2.status = 204;
+                    return next(err2);
+                }
+                return next(err);
             }
 
             res.locals.user = user;

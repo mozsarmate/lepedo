@@ -44,7 +44,9 @@
                             <td><p>    <%= cur.name %>   </p></td>
                             <td><p class="middle">    <%= cur.date %>    </p></td>
                             <td class="middle">
-                                <% const curuserfrom =  users.find(u => u._id.toString() === cur.userfrom.toString()) %>
+                                <% const curuserfrom =  users.find(u => u._id === cur.userfrom) %>
+
+
                                 <div class="usertag bg-<%= typeof cur.userfrom === 'undefined' ? '' : cur.userfrom.color %>">
                                     <%= typeof cur.userfrom === 'undefined' ? '' : cur.userfrom.name %>
                                 </div>
@@ -57,7 +59,7 @@
                                 <% }); %>
 
                             </td>
-                            <td><p class="right bold">    <%= cur.amount %> Ft </p></td>
+                            <td><p class="right bold">    <%= cur.amount.toLocaleString({minimumIntegerDigits: 3, useGrouping: true}).replace(/,/g, ' ') %> Ft </p></td>
                             <td class="min-width right">
                                 <a href="/edit_expense/<%= cur._id %>">
                                     <img src="/images/pencil.svg" alt="edit"/>
@@ -90,7 +92,7 @@
                     <table>
                         <tbody>
                         <tr>
-                            <th><p>#</p></th>
+                            <th><p class="left"> &nbsp; &nbsp; #</p></th>
                             <th><p>Utaló</p></th>
                             <th class="min-width"></th>
                             <th class="w7"><p>Kedvezményezett</p></th>
@@ -100,19 +102,19 @@
                         </tr>
                         <% transfers.forEach(function(cur){ %>
                         <tr>
-                            <td><p class="middle">   <%= cur._id %>   </p></td>
-                            <% const curuserfrom = users.find(u => u._id === cur.userfrom) %>
-                            <td class="middle">
-                                <div class="usertag bg-<%= curuserfrom.color %>">    <%= curuserfrom.name %>    </div>
-                            </td>
-                            <td><img class="arrow-right" src="/images/arrow-right.svg" alt="arrow-right"/></td>
+                            <td><p class="left">   ...<%= cur._id.toString().slice(-4) %>   </p></td>
 
-                            <% const curuserto = users.find(u => u._id === cur.userto) %>
-                            <td class="middle min-width">
-                                <div class="usertag bg-<%= curuserto.color %>">    <%= curuserto.name %>    </div>
+                            <td class="middle">
+                                <div class="usertag bg-<%= cur.userfrom.color %>">    <%= cur.userfrom.name %>    </div>
                             </td>
+                            <td class="min-width"><img class="arrow-right" src="/images/arrow-right.svg" alt="arrow-right"/></td>
+
+                            <td class="middle min-width">
+                                <div class="usertag bg-<%= cur.userto.color %>">    <%= cur.userto.name %>    </div>
+                            </td>
+
                             <td><p class="middle">     <%= cur.date %>     </p></td>
-                            <td><p class="right bold">      <%= cur.amount %> Ft</p></td>
+                            <td><p class="right bold">      <%= cur.amount.toLocaleString({minimumIntegerDigits: 3, useGrouping: true}).replace(/,/g, ' ') %> Ft</p></td>
                             <td class="min-width right">
                                 <a href="/edit_transfer/<%= cur._id %>">
                                     <img src="/images/pencil.svg" alt="edit"/>

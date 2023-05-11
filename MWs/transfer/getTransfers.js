@@ -7,8 +7,7 @@ const reqOption = require('../requireOption');
 module.exports = function (objectrepository) {
     //const TransferModel = reqOption(objectrepository, 'UserModel');
     return function (req, res, next) {
-        res.locals.transfers = [];
-        objectrepository.Transfer.find({}, (err, transfers) => {
+        objectrepository.Transfer.find({}).populate('userfrom').populate('userto').exec((err, transfers) => {
             if (err || !transfers) {
                 return next(err);
             }
