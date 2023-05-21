@@ -10,7 +10,7 @@ module.exports = function (objectrepository) {
     return function (req, res, next) {
 
         objectrepository.User.find({}, (err, users) => {
-            if(err) {
+            if(err || users.length === 0) {
                 return res.redirect('/add_user');
             }
             res.locals.users = users;
