@@ -39,8 +39,8 @@
 
         <tr class="bgo-<%= cur.color %>">
             <td class="left">
-                <div class="usertag bg-<%= cur.color %> hideonhover">    <%= cur.name %>     </div>
-                <div class="usertag bg-<%= cur.color %> showonhover"> @<%= cur.revtag %>     </div>
+                <div class="usertag hideonhover" style="background-color: <%= cur.color %>;">    <%= cur.name %>     </div>
+                <div class="usertag showonhover" style="background-color: <%= cur.color %>;"> @<%= cur.revtag %>     </div>
                 <a href="/edit_user/<%= cur._id %>">
                     <img src="/images/pencil.svg" alt="edit"/>
                 </a>

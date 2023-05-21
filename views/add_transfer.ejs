@@ -20,7 +20,7 @@
                     <%users.forEach(function(cur){%>
                         <input required type="radio" id="a<%=cur._id%>" value="<%=cur._id%>" class="radio" <%  if (typeof transfer !== 'undefined') if (transfer.userfrom._id.toString() === cur._id.toString()){ %> checked <%}%> name="payed">
                         <label for="a<%=cur._id%>">
-                            <div class="usertag bg-<%=cur.color%>">    <%=cur.name%>     </div><br>
+                            <div class="usertag" <% if (typeof cur.color !== 'undefined'){ %> style="background-color:<%=cur.color%>" <%} %>>    <%=cur.name%>     </div><br>
                         </label>
                     <%});%>
                 </td>
@@ -28,7 +28,7 @@
                 <td class="right">
                     <%users.forEach(function(cur){%>
                         <label for="b<%=cur._id%>">
-                            <div class="usertag bg-<%=cur.color%>">    <%=cur.name%>     </div>
+                            <div class="usertag" <% if (typeof cur.color !== 'undefined'){ %> style="background-color:<%=cur.color%>" <%} %>>    <%=cur.name%>     </div>
                         </label>
                         <input required type="radio" id="b<%=cur._id%>" value="<%=cur._id%>" class="radio" <% if(typeof transfer !== 'undefined') {if (transfer.userto._id.toString() === cur._id.toString()){ %> checked <%}}%> name="payedto"><br>
                     <%});%>

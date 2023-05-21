@@ -47,7 +47,7 @@
                                 <% const curuserfrom =  users.find(u => u._id === cur.userfrom) %>
 
 
-                                <div class="usertag bg-<%= typeof cur.userfrom === 'undefined' ? '' : cur.userfrom.color %>">
+                                <div class="usertag" <% if (typeof cur.userfrom.color !== 'undefined'){ %> style="background-color:<%=cur.userfrom.color%>" <%} %>>
                                     <%= typeof cur.userfrom === 'undefined' ? '' : cur.userfrom.name %>
                                 </div>
                             </td>
@@ -55,9 +55,8 @@
                             <td class="middle">
 
                                 <% cur.userto.forEach(function(curuser){ %>
-                                    <div class="usertag bg-<%= typeof curuser === 'undefined' ? '' : curuser.color %>">    <%= typeof curuser === 'undefined' ? '' : curuser.name %>    </div>
+                                    <div class="usertag" <% if (typeof curuser.color !== 'undefined'){ %> style="background-color:<%=curuser.color%>" <%} %>>    <%= typeof curuser === 'undefined' ? '' : curuser.name %>    </div>
                                 <% }); %>
-
                             </td>
                             <td><p class="right bold">    <%= cur.amount.toLocaleString({minimumIntegerDigits: 3, useGrouping: true}).replace(/,/g, ' ') %> Ft </p></td>
                             <td class="min-width right">
@@ -105,12 +104,12 @@
                             <td><p class="left">   ...<%= cur._id.toString().slice(-4) %>   </p></td>
 
                             <td class="middle">
-                                <div class="usertag bg-<%= cur.userfrom.color %>">    <%= cur.userfrom.name %>    </div>
+                                <div class="usertag" <% if (typeof cur.userfrom.color !== 'undefined'){ %> style="background-color:<%=cur.userfrom.color%>" <%} %>>    <%= cur.userfrom.name %>    </div>
                             </td>
                             <td class="min-width"><img class="arrow-right" src="/images/arrow-right.svg" alt="arrow-right"/></td>
 
                             <td class="middle min-width">
-                                <div class="usertag bg-<%= cur.userto.color %>">    <%= cur.userto.name %>    </div>
+                                <div class="usertag" <% if (typeof cur.userto.color !== 'undefined'){ %> style="background-color:<%=cur.userto.color%>" <%} %>>    <%= cur.userto.name %>    </div>
                             </td>
 
                             <td><p class="middle">     <%= cur.date %>     </p></td>

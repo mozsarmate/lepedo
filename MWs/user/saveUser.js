@@ -23,7 +23,8 @@ module.exports = function (objectrepository) {
 
         res.locals.user.name = req.body.name;
         res.locals.user.revtag = req.body.revtag;
-        res.locals.user.color = colors[(req.body.name.charCodeAt(0)+req.body.name.charCodeAt(2))%colors.length];
+        //res.locals.user.color = colors[(req.body.name.charCodeAt(0)+req.body.name.charCodeAt(2))%colors.length];
+        res.locals.user.color = req.body.color;
 
         res.locals.user.save(err => {
            if (err) {

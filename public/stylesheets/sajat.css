@@ -190,6 +190,7 @@ form > table > td{
 .actioncol{
     width: 4rem;
 }
+
 .bg-red{
     background-color: #d9515e;
 }
@@ -203,7 +204,7 @@ form > table > td{
     background-color: #f86e0b;
 }
 .bg-yellow{
-    background-color: #ffb100;
+    background-color: #9370DB;
 }
 .bg-purple{
     background-color: mediumpurple;
@@ -212,6 +213,8 @@ form > table > td{
     //background-color: #00bbff;
     background-color: #52bbe8;
 }
+
+
 /*-----
 .bgo-red{
     background-color: #d9515e12;
@@ -297,6 +300,12 @@ input{
     width: 25rem;
     outline:none;
 }
+.color{
+    border: 2px solid gray;
+    padding: 1px;
+    height: 2rem;
+    width: 5rem;
+}
 input:hover{
     border-color: black;
     outline:none;
@@ -305,6 +314,17 @@ input:hover{
 input:focus{
     border-width: 0 0 3px 0;
     /*box-shadow: 0 4px 4px lightgray;*/
+}
+label{
+    font-family: "Poppins", Helvetica;
+    color: gray;
+    font-size: 18px;
+}
+.color:hover{
+    border: 2px solid black;
+}
+.color:focus{
+    border: 3px solid black;
 }
 .sbtn_with_h4:focus{
     border: 2px solid black;

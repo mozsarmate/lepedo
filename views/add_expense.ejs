@@ -20,7 +20,7 @@
                     <%users.forEach(function(cur){%>
                         <input required type="radio" id="a<%=cur._id%>" value="<%=cur._id%>" class="radio" <%if (typeof expense !== "undefined") {if (expense.userfrom._id.toString() === cur._id.toString()){ %> checked <%}}%> name="payed">
                         <label for="a<%=cur._id%>">
-                            <div class="usertag bg-<%=cur.color%>">    <%=cur.name%>     </div><br>
+                            <div class="usertag" <% if (typeof cur.color !== 'undefined'){ %> style="background-color:<%=cur.color%>" <%} %>>    <%=cur.name%>     </div><br>
                         </label>
                     <%});%>
                     <!--
@@ -34,7 +34,7 @@
                 <td class="right">
                     <%users.forEach(function(cur){%>
                         <label for="b<%=cur._id%>">
-                            <div class="usertag bg-<%=cur.color%>">    <%=cur.name%>     </div>
+                            <div class="usertag" <% if (typeof cur.color !== 'undefined'){ %> style="background-color:<%=cur.color%>" <%} %>>    <%=cur.name%>     </div>
                         </label>
                         <input type="checkbox" id="b<%=cur._id%>" value="<%=cur._id%>" class="checkbox" <%if (typeof expense !== "undefined") { if (expense.userto.toString().includes(cur._id.toString())){ %> checked <%}}%> name="payedto"><br>
                     <%});%>

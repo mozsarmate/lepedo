@@ -6,8 +6,10 @@
 <div class="h10"></div>
 <div class="middle">
   <form method="post">
-    <input required placeholder="Név" name="name" minlength="3" autofocus value="<%= (typeof user === 'undefined') ? '' : user.name%>"><br>
-    <input required placeholder="@revtag" name="revtag" value="<%= (typeof user === 'undefined') ? '' : user.revtag%>"><br>
+    <input required placeholder="Név" id="name" name="name" minlength="3" autofocus value="<%= (typeof user === 'undefined') ? '' : user.name%>" onchange="gencolor()"><br>
+    <input required placeholder="@revtag" name="revtag" pattern="[^@]*" title="Nem kell a @ karaktert is megadnod" value="<%= (typeof user === 'undefined') ? '' : user.revtag%>"><br>
+    <label>Szín</label>
+    <input required placeholder="@revtag" id="color" name="color" type="color" class="color" value="<%= (typeof user === 'undefined') ? '#D9515E' : user.color%>"><br>
     <div class="h5"></div>
     <input class="sbtn_with_h4" type="submit" value="Mentés">
     <a class="sbtn" href="/summary"><h4>Mégse</h4></a>
@@ -16,3 +18,14 @@
 
 </body>
 </html>
+<script>
+    function gencolor(){
+      let nev = document.getElementById("name").value;
+      if(nev.length < 2) return;
+      console.log("inv")
+      const colors = Array('red', 'green', 'orange', 'teal', 'yellow', 'purple', 'blue');
+      const colors2 = Array('#D9515E', '#51BB88', '#F86E0B', '#0F8A8E', '#FFB100', '#9370DB', '#52BBE8');
+      let szin = document.getElementById("color");
+      szin.value = colors2[(nev.charCodeAt(0) + nev.charCodeAt(2)) % colors2.length];
+    }
+</script>
