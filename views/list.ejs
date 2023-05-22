@@ -21,7 +21,10 @@
         <tr>
             <td>
                 <h3>Költések</h3>
-                <a href="/add_expense" class="sbtn"><h4> + Új költés </h4></a>
+                <a href="/add_expense" id="myLink" class="sbtn">
+                    <div class="loading-bottle"></div>
+                    <h4 id="myText"> + Új költés </h4>
+                </a>
             </td>
             <td class="outertable">
                 <div class="scroll">
@@ -38,36 +41,47 @@
                             <th class="actioncol"></th>
                         </tr>
 
-                        <% expenses.forEach(function(cur){ %>
-                        <tr>
-                            <td><p title="<%= cur._id%>" class="left">   ...<%= cur._id.toString().slice(-4) %>    </p></td>
-                            <td><p>    <%= cur.name %>   </p></td>
-                            <td><p class="middle">    <%= cur.date %>    </p></td>
-                            <td class="middle">
-                                <% const curuserfrom =  users.find(u => u._id === cur.userfrom) %>
+                        <% expenses.reverse().forEach(function(cur){ %>
+                            <tr>
+                                <td><p title="<%= cur._id %>" class="left">
+                                        ...<%= cur._id.toString().slice(-4) %>    </p></td>
+                                <td><p>    <%= cur.name %>   </p></td>
+                                <td><p class="middle">    <%= cur.date %>    </p></td>
+                                <td class="middle">
+                                    <% const curuserfrom = users.find(u => u._id === cur.userfrom) %>
 
+                                    <div class="usertag"
+                                    <% if (typeof cur.userfrom.color !== 'undefined'){ %>
+                                         style="background-color:<%= cur.userfrom.color %>"
+                                            <% } %>
+                                    >
+                                        <%= typeof cur.userfrom === 'undefined' ? '' : cur.userfrom.name %>
+                                    </div>
+                                </td>
+                                <td><img class="arrow-right" src="/images/arrow-right.svg" alt="arrow-right"/></td>
+                                <td class="middle">
 
-                                <div class="usertag" <% if (typeof cur.userfrom.color !== 'undefined'){ %> style="background-color:<%=cur.userfrom.color%>" <%} %>>
-                                    <%= typeof cur.userfrom === 'undefined' ? '' : cur.userfrom.name %>
-                                </div>
-                            </td>
-                            <td><img class="arrow-right" src="/images/arrow-right.svg" alt="arrow-right"/></td>
-                            <td class="middle">
-
-                                <% cur.userto.forEach(function(curuser){ %>
-                                    <div class="usertag" <% if (typeof curuser.color !== 'undefined'){ %> style="background-color:<%=curuser.color%>" <%} %>>    <%= typeof curuser === 'undefined' ? '' : curuser.name %>    </div>
-                                <% }); %>
-                            </td>
-                            <td><p class="right bold">    <%= cur.amount.toLocaleString({minimumIntegerDigits: 3, useGrouping: true}).replace(/,/g, ' ') %> Ft </p></td>
-                            <td class="min-width right">
-                                <a href="/edit_expense/<%= cur._id %>">
-                                    <img src="/images/pencil.svg" alt="edit"/>
-                                </a>
-                                <a href="/delete_expense/<%= cur._id %>">
-                                    <img src="/images/trash.svg" alt="delete"/>
-                                </a>
-                            </td>
-                        </tr>
+                                    <% cur.userto.forEach(function(curuser){ %>
+                                        <div class="usertag"
+                                        <% if (typeof curuser.color !== 'undefined'){ %>
+                                             style="background-color:<%= curuser.color %>"
+                                                <% } %>
+                                        >    <%= typeof curuser === 'undefined' ? '' : curuser.name %>    </div>
+                                    <% }); %>
+                                </td>
+                                <td><p class="right bold">    <%= cur.amount.toLocaleString({
+                                            minimumIntegerDigits: 3,
+                                            useGrouping: true
+                                        }).replace(/,/g, ' ') %> Ft </p></td>
+                                <td class="min-width right">
+                                    <a href="/edit_expense/<%= cur._id %>">
+                                        <img src="/images/pencil.svg" alt="edit"/>
+                                    </a>
+                                    <a href="/delete_expense/<%= cur._id %>">
+                                        <img src="/images/trash.svg" alt="delete"/>
+                                    </a>
+                                </td>
+                            </tr>
                         <% }); %>
 
                         </tbody>
@@ -99,30 +113,42 @@
                             <th class="w7"><p>Összeg</p></th>
                             <th class="actioncol"></th>
                         </tr>
-                        <% transfers.forEach(function(cur){ %>
-                        <tr>
-                            <td><p class="left">   ...<%= cur._id.toString().slice(-4) %>   </p></td>
+                        <% transfers.reverse().forEach(function(cur){ %>
+                            <tr>
+                                <td><p class="left"> ...<%= cur._id.toString().slice(-4) %>   </p></td>
 
-                            <td class="middle">
-                                <div class="usertag" <% if (typeof cur.userfrom.color !== 'undefined'){ %> style="background-color:<%=cur.userfrom.color%>" <%} %>>    <%= cur.userfrom.name %>    </div>
-                            </td>
-                            <td class="min-width"><img class="arrow-right" src="/images/arrow-right.svg" alt="arrow-right"/></td>
+                                <td class="middle">
+                                    <div class="usertag"
+                                    <% if (typeof cur.userfrom.color !== 'undefined'){ %>
+                                         style="background-color:<%= cur.userfrom.color %>"
+                                            <% } %>
+                                    >    <%= cur.userfrom.name %>    </div>
+                                </td>
+                                <td class="min-width"><img class="arrow-right" src="/images/arrow-right.svg"
+                                                           alt="arrow-right"/></td>
 
-                            <td class="middle min-width">
-                                <div class="usertag" <% if (typeof cur.userto.color !== 'undefined'){ %> style="background-color:<%=cur.userto.color%>" <%} %>>    <%= cur.userto.name %>    </div>
-                            </td>
+                                <td class="middle min-width">
+                                    <div class="usertag"
+                                    <% if (typeof cur.userto.color !== 'undefined'){ %>
+                                         style="background-color:<%= cur.userto.color %>"
+                                            <% } %>
+                                    >    <%= cur.userto.name %>    </div>
+                                </td>
 
-                            <td><p class="middle">     <%= cur.date %>     </p></td>
-                            <td><p class="right bold">      <%= cur.amount.toLocaleString({minimumIntegerDigits: 3, useGrouping: true}).replace(/,/g, ' ') %> Ft</p></td>
-                            <td class="min-width right">
-                                <a href="/edit_transfer/<%= cur._id %>">
-                                    <img src="/images/pencil.svg" alt="edit"/>
-                                </a>
-                                <a href="/delete_transfer/<%= cur._id %>">
-                                    <img src="/images/trash.svg" alt="delete"/>
-                                </a>
-                            </td>
-                        </tr>
+                                <td><p class="middle">     <%= cur.date %>     </p></td>
+                                <td><p class="right bold">      <%= cur.amount.toLocaleString({
+                                            minimumIntegerDigits: 3,
+                                            useGrouping: true
+                                        }).replace(/,/g, ' ') %> Ft</p></td>
+                                <td class="min-width right">
+                                    <a href="/edit_transfer/<%= cur._id %>">
+                                        <img src="/images/pencil.svg" alt="edit"/>
+                                    </a>
+                                    <a href="/delete_transfer/<%= cur._id %>">
+                                        <img src="/images/trash.svg" alt="delete"/>
+                                    </a>
+                                </td>
+                            </tr>
                         <% }); %>
 
                         </tbody>
@@ -134,4 +160,28 @@
 </div>
 
 </body>
+<script>
+    const link = document.getElementById("myLink");
+    const text = document.getElementById("myText");
+    const loadingBottle = document.querySelector(".loading-bottle");
+    let timeout;
+
+    link.addEventListener("mouseenter", function () {
+        console.log("start");
+        //loadingBottle.style.height = "100%";
+        timeout = setTimeout(function () {
+            console.log("convert");
+            link.href = "/convert";
+            text.innerHTML = " + Költések importálása ";
+        }, 3000);
+    });
+
+    link.addEventListener("mouseleave", function () {
+        clearTimeout(timeout);
+        //loadingBottle.style.height = "23px";
+        console.log("add");
+        link.href = "/add_expense";
+        text.innerHTML = " + Új költés ";
+    });
+</script>
 </html>

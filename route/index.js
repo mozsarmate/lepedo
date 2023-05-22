@@ -6,6 +6,7 @@ const delUserMW = require('../MWs/user/delUser.js');
 const getExpenseMW = require('../MWs/expense/getExpense.js');
 const getExpensesMW = require('../MWs/expense/getExpenses.js');
 const saveExpenseMW = require('../MWs/expense/saveExpense.js');
+const saveMultipleExpensesMW = require('../MWs/expense/saveMultipleExpenses.js');
 const delExpenseMW = require('../MWs/expense/delExpense.js');
 
 const getTransferMW   = require('../MWs/transfer/getTransfer.js');
@@ -109,6 +110,12 @@ module.exports = function(app){
     app.get('/demosave',
         trysave(objRepo),
         redirectMW(objRepo,'/summary')
+    );
+
+    app.use('/convert',
+        getUsersMW(objRepo),
+        saveMultipleExpensesMW(objRepo),
+        renderMW(objRepo,'convert')
     );
 
     app.get('/',
