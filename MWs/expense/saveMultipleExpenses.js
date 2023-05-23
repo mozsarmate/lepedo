@@ -79,7 +79,7 @@ module.exports = function (objectrepository) {
                 let curarray = array[i].split(/\t/);
                 let curexpense = new objectrepository.Expense();
                 curexpense.name = curarray[1];
-                curexpense.date = good_date(curarray[3].replace(/\./g, "-"));
+                curexpense.date = good_date(curarray[3].replace(/\.$/, '').replace(/\./g, '-'));
                 curexpense.amount = parseInt(curarray[2].replace(/\s|Ft/g, ""));
 
                 //userfrom
