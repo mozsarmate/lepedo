@@ -80,7 +80,7 @@ module.exports = function (objectrepository) {
                 let curexpense = new objectrepository.Expense();
                 curexpense.name = curarray[1];
                 curexpense.date = good_date(curarray[3].replace(/\./g, "-"));
-                curexpense.amount = parseInt(curarray[2].replace(/\.(?=[^.]*$)/g, "-"));
+                curexpense.amount = parseInt(curarray[2].replace(/\s|Ft/g, ""));
 
                 //userfrom
                 for (let k = 0; k < names.length; k++) {
