@@ -1,5 +1,6 @@
 var express = require('express');
 const path = require("path");
+const Darkmode = require('darkmode-js');
 var app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded());

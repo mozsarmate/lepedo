@@ -39,13 +39,15 @@
 
         <tr class="bgo-<%= cur.color %>">
             <td class="left">
-                <div class="usertag hideonhover" style="background-color: <%= cur.color %>;">    <%= cur.name %>     </div>
+                <div class="usertag anim hideonhover" style="background-color: <%= cur.color %>;">    <%= cur.name %>     </div>
                 <div class="usertag showonhover" style="background-color: <%= cur.color %>;"> @<%= cur.revtag %>     </div>
                 <a href="/edit_user/<%= cur._id %>">
-                    <img src="/images/pencil.svg" alt="edit"/>
+                    <img src="/images/pencil.svg" class="hideondark" alt="edit"/>
+                    <img src="/images/pencil-white.svg" class="hideonlight"  alt="edit"/>
                 </a>
                 <a  <% if(final[cur._id].deleteable===1) {%> href="/delete_user/<%= cur._id %>" <% } else { %> style="opacity: 50%;" title="A user még résztvesz legalább 1 tranzakcióban, ezért nem törölhető." <% } %> >
-                    <img src="/images/trash.svg" alt="delete"/>
+                    <img src="/images/trash.svg"  class="hideondark" alt="delete"/>
+                    <img src="/images/trash-white.svg"  class="hideonlight" alt="delete"/>
                 </a>
             </td>
             <td><p class="right">        <%= final[cur._id].spent.toLocaleString({
@@ -95,3 +97,4 @@
 
 </body>
 </html>
+

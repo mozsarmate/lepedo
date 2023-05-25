@@ -24,7 +24,10 @@
                         </label>
                     <%});%>
                 </td>
-                <td><img class="arrow-right" src="/images/arrow-right.svg" alt="arrow-right" /></td>
+                <td>
+                    <img class="arrow-right hideondark" src="/images/arrow-right.svg" alt="arrow-right" />
+                    <img class="arrow-right hideonlight" src="/images/arrow-right-white.svg" alt="arrow-right" />
+                </td>
                 <td class="right">
                     <%users.forEach(function(cur){%>
                         <label for="b<%=cur._id%>">

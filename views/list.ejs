@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('header') -%>
+
 <div class="floating-top">
     <div class="card bg-green">
         <h5>Összes utalás</h5>
@@ -40,7 +41,7 @@
                             <th class="w7"><p>Összeg</p></th>
                             <th class="actioncol"></th>
                         </tr>
-
+<!--todo animate most usertags-->
                         <% expenses.reverse().forEach(function(cur){ %>
                             <tr>
                                 <td><p title="<%= cur._id %>" class="left">
@@ -58,27 +59,43 @@
                                         <%= typeof cur.userfrom === 'undefined' ? '' : cur.userfrom.name %>
                                     </div>
                                 </td>
-                                <td><img class="arrow-right" src="/images/arrow-right.svg" alt="arrow-right"/></td>
+                                <td>
+                                    <img class="arrow-right hideondark" src="/images/arrow-right.svg"
+                                         alt="arrow-right"/>
+                                    <img class="arrow-right hideonlight" src="/images/arrow-right-white.svg"
+                                         alt="arrow-right"/>
+                                </td>
                                 <td class="middle">
 
                                     <% cur.userto.forEach(function(curuser){ %>
-                                        <div class="usertag"
+                                    <!--todo hover on tag makes the price visible-->
+                                        <div class="usertag activateshowonhovertext"
                                         <% if (typeof curuser.color !== 'undefined'){ %>
                                              style="background-color:<%= curuser.color %>"
                                                 <% } %>
                                         >    <%= typeof curuser === 'undefined' ? '' : curuser.name %>    </div>
                                     <% }); %>
                                 </td>
-                                <td><p class="right bold">    <%= cur.amount.toLocaleString({
+                                <td>
+                                    <p class="hideonhover right bold">
+                                        <%= cur.amount.toLocaleString({
                                             minimumIntegerDigits: 3,
                                             useGrouping: true
-                                        }).replace(/,/g, ' ') %> Ft </p></td>
+                                        }).replace(/,/g, ' ') %> Ft </p>
+                                    <p class="showonhovertext right bold italic">
+                                        <%=cur.divided.toLocaleString({
+                                            minimumIntegerDigits: 3,
+                                            useGrouping: true
+                                        }).replace(/,/g, ' ') %> Ft </p>
+                                </td>
                                 <td class="min-width right">
                                     <a href="/edit_expense/<%= cur._id %>">
-                                        <img src="/images/pencil.svg" alt="edit"/>
+                                        <img src="/images/pencil.svg" class="hideondark" alt="edit"/>
+                                        <img src="/images/pencil-white.svg" class="hideonlight" alt="edit"/>
                                     </a>
                                     <a href="/delete_expense/<%= cur._id %>">
-                                        <img src="/images/trash.svg" alt="delete"/>
+                                        <img src="/images/trash.svg" class="hideondark" alt="delete"/>
+                                        <img src="/images/trash-white.svg" class="hideonlight" alt="delete"/>
                                     </a>
                                 </td>
                             </tr>
@@ -124,8 +141,12 @@
                                             <% } %>
                                     >    <%= cur.userfrom.name %>    </div>
                                 </td>
-                                <td class="min-width"><img class="arrow-right" src="/images/arrow-right.svg"
-                                                           alt="arrow-right"/></td>
+                                <td class="min-width">
+                                    <img class="arrow-right" src="/images/arrow-right.svg" class="hideondark"
+                                         alt="arrow-right"/>
+                                    <img class="arrow-right" src="/images/arrow-right-white.svg" class="hideonlight"
+                                         alt="arrow-right"/>
+                                </td>
 
                                 <td class="middle min-width">
                                     <div class="usertag"
@@ -142,10 +163,12 @@
                                         }).replace(/,/g, ' ') %> Ft</p></td>
                                 <td class="min-width right">
                                     <a href="/edit_transfer/<%= cur._id %>">
-                                        <img src="/images/pencil.svg" alt="edit"/>
+                                        <img src="/images/pencil.svg" class="hideondark" alt="edit"/>
+                                        <img src="/images/pencil-white.svg" class="hideonlight" alt="edit"/>
                                     </a>
                                     <a href="/delete_transfer/<%= cur._id %>">
-                                        <img src="/images/trash.svg" alt="delete"/>
+                                        <img src="/images/trash.svg" class="hideondark" alt="delete"/>
+                                        <img src="/images/trash-white.svg" class="hideonlight" alt="delete"/>
                                     </a>
                                 </td>
                             </tr>
@@ -183,5 +206,6 @@
         link.href = "/add_expense";
         text.innerHTML = " + Új költés ";
     });
+
 </script>
 </html>

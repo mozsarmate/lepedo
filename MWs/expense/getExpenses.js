@@ -13,6 +13,9 @@ module.exports = function (objectrepository) {
                 return next(err);
             }
             res.locals.expenses = expenses;
+            res.locals.expenses.forEach(cur => {
+               cur.divided = Math.floor(cur.amount / cur.userto.length);
+            });
             return next();
         });
         /*

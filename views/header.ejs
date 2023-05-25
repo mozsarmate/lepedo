@@ -1,9 +1,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Lepedő - Részletek</title>
+
+
     <link rel="stylesheet" href="/stylesheets/sajat.css">
 </head>
 <body>
+<script src="/darkmode-min.js"></script>
+<script>
+    const dm = new Darkmode({
+        invertLighter: false,
+        invertDarker: false,
+        saveInCookies: true,
+        cookieExpires: 365,
+        autoMatchOsTheme: true,
+        timeOfDay: true,
+        sunrise: '06:00',
+        sunset: '20:00',
+        backgroundColor: '#ffffff',  // default: '#fff'
+        darkbgColor: '#282c34',
+        buttonColorDark: '#100f2c',  // default: '#100f2c'
+        buttonColorLight: '#fff', // default: '#fff'
+    });
+
+    dm.showWidget();
+</script>
 
 <h1>Lepedő</h1>
 <a href="/summary"><h2>Összegzés</h2></a>
