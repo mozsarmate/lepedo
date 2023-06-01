@@ -80,7 +80,7 @@ th{
     border-width: 0 0 3px 0;
 }
 td{
-    border: 1px gray solid;
+    border: 1px grey solid;
     border-width: 0 0 1px 0;
 }
 th > p{
@@ -107,7 +107,7 @@ th > p{
 }
 .sbtn:hover{
     /*todo uncommment the line below*/
-/*    box-shadow: 4px 4px 4px lightgray;*/
+/*  box-shadow: 4px 4px 4px lightgray;*/
     animation: border 3s ease-in-out infinite;
 }
 .darkmode--activated .sbtn:hover{
@@ -427,11 +427,7 @@ textarea{
     right: 20px;
     color:black;
 }
-@media (max-width:1270px) {
-    .card{
-        display: none;
-    }
-}
+
 .card:hover{
     box-shadow: 4px 4px 4px lightgray;
 }
@@ -552,4 +548,47 @@ textarea{
 }
 .darkmode--activated .hideonlight{
     display: inline-block;
+}
+
+/*mobile optimalization*/
+@media (max-width:1300px) {
+    p{
+        font-size: 24px;
+    }
+    .card{
+        display: none;
+    }
+    input{
+        width: 80%;
+        font-size: 36px;
+        margin: 20px;
+    }
+    .usertag{
+        padding: 7px 15px;
+        font-size: 30px;
+        margin: 10px 0;
+    }
+    h5{
+        margin-top:35px;
+        font-size: 30px;
+    }
+    h4{
+        font-size: 30px;
+    }
+    .sbtn, .sbtn_with_h4{
+        width: 20%;
+        font-size: 30px;
+    }
+    h1{
+        font-size: 90px;
+    }
+    h2{
+        font-size: 30px;
+    }
+    form > table{
+        width: 80%;
+    }
+    table{
+        overflow-x: scroll;
+    }
 }
